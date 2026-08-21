@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEONG Arena — System Update</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #080808;
+            --card-bg: rgba(18, 18, 18, 0.75);
+            --card-border: rgba(212, 175, 55, 0.2);
+            --primary-gold: #ffd700;
+            --secondary-gold: #d4af37;
+            --muted-gold: #c5a059;
+            --text-light: #e6ca65;
+            --text-white: #ffffff;
+            --glow-gold: rgba(255, 215, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Grid & Glow */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-gold) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px 20px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--primary-gold);
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-white);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-icon-wrap {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            margin-bottom: 8px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+        }
+
+        .hero-icon-wrap i {
+            animation: spin 10s linear infinite;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--text-white);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* Status Panel */
+        .status-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .status-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-panel-header i {
+            color: var(--primary-gold);
+            animation: spin 4s linear infinite;
+        }
+
+        .status-panel-header h3 {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-anim {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 40%;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            border-radius: 3px;
+            animation: shimmer 2s infinite ease-in-out;
+        }
+
+        /* Grid Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 215, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+        }
+
+        .card h4 {
+            color: var(--text-white);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9));
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .security-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            flex-shrink: 0;
+        }
+
+        .security-content h3 {
+            color: var(--text-white);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .security-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            width: 100%;
+            color: var(--muted-gold);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1;
+        }
+
+        footer strong {
+            color: var(--text-white);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .container { padding: 24px 16px; gap: 32px; }
+            .security-section { flex-direction: column; gap: 16px; padding: 24px; }
+            .status-panel { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+        
+        <header>
+            <div class="badge">
+                <span class="status-dot"></span>
+                <i data-lucide="refresh-cw" size="14"></i>
+                SYSTEM UPDATE IN PROGRESS
+            </div>
+            <h1>HEONG ARENA</h1>
+            <div class="subtitle">Mobile Esports Platform</div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-icon-wrap">
+                <i data-lucide="refresh-cw" size="32"></i>
+            </div>
+            <h2>HEONG Arena is Updating</h2>
+            <p>We're improving HEONG Arena to deliver a faster, safer, and better gaming experience.</p>
+        </section>
+
+        <section class="status-panel">
+            <div class="status-panel-header">
+                <i data-lucide="refresh-cw" size="20"></i>
+                <h3>Platform Upgrade in Progress</h3>
+            </div>
+            <p>Our team is working on important improvements. Some features may temporarily be unavailable while updates are being applied.</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar-anim"></div>
+            </div>
+        </section>
+
+        <section class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i data-lucide="bug" size="22"></i></div>
+                <h4>Bug Fixes</h4>
+                <p>Fixing bugs and improving platform stability.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i data-lucide="sparkles" size="22"></i></div>
+                <h4>New Features</h4>
+                <p>Adding new features and improving the overall user experience.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i data-lucide="trophy" size="22"></i></div>
+                <h4>New Events</h4>
+                <p>Preparing exciting new tournaments, events, and challenges.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i data-lucide="shield-check" size="22"></i></div>
+                <h4>Extra Privacy</h4>
+                <p>Strengthening privacy protections and improving account security.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i data-lucide="credit-card" size="22"></i></div>
+                <h4>Secure Payments</h4>
+                <p>Improving payment security and payment reliability.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i data-lucide="zap" size="22"></i></div>
+                <h4>Faster Experience</h4>
+                <p>Optimizing HEONG Arena for faster loading and smoother performance.</p>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <div class="security-icon">
+                <i data-lucide="lock" size="26"></i>
+            </div>
+            <div class="security-content">
+                <h3>Your Privacy & Security Matter</h3>
+                <p>We're strengthening privacy protections, improving account security, and enhancing payment reliability to provide a safer HEONG Arena experience.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year">2026</span> <strong>HEONG Arena</strong>. Built by <strong>FLASH POINT</strong></p>
+        <p>Thank you for being part of the HEONG Arena community.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Staggered Entrance Animation for Cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
