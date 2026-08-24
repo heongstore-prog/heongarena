@@ -1,458 +1,1356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEONG Arena — System Update</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color: #080808;
-            --card-bg: rgba(18, 18, 18, 0.75);
-            --card-border: rgba(212, 175, 55, 0.2);
-            --primary-gold: #ffd700;
-            --secondary-gold: #d4af37;
-            --muted-gold: #c5a059;
-            --text-light: #e6ca65;
-            --text-white: #ffffff;
-            --glow-gold: rgba(255, 215, 0, 0.15);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Heong Arena - Gaming Tournaments, Events, Store & Tools</title>
+  <meta name="description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
+  <meta name="keywords" content="gaming tournaments, esports, game store, gaming tools, gaming events, Heong Arena">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="canonical" href="https://heongarena.online/">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
+  <!-- Local Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Heong Arena - Gaming Tournaments, Events, Store & Tools">
+  <meta property="og:description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
+  <meta property="og:url" content="https://heongarena.online/">
+  <meta property="og:image" content="./og-image.png">
 
-        /* Ambient Background Grid & Glow */
-        .bg-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--glow-gold) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Heong Arena - Gaming Tournaments, Events, Store & Tools">
+  <meta name="twitter:description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
+  <meta name="twitter:image" content="./og-image.png">
 
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: 0;
-            pointer-events: none;
-        }
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Heong Arena",
+    "url": "https://heongarena.online/",
+    "logo": "https://heongarena.online/logo.png",
+    "description": "Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services."
+  }
+  </script>
 
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            padding: 40px 20px;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
+  <style>
+    :root {
+      --bg-main: #0a0d14;
+      --bg-card: #121824;
+      --bg-card-hover: #1a2233;
+      --accent: #ff4757;
+      --accent-hover: #ff6b81;
+      --primary: #3742fa;
+      --primary-hover: #5352ed;
+      --text-main: #f1f2f6;
+      --text-muted: #a4b0be;
+      --border: #2f3542;
+      --success: #2ed573;
+      --warning: #ffa500;
+      --danger: #ff4757;
+      --radius: 12px;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        /* Header */
-        header {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-main); -webkit-tap-highlight-color: transparent; }
+    body { background-color: var(--bg-main); color: var(--text-main); min-height: 100vh; padding-bottom: 80px; padding-top: 65px; overflow-x: hidden; }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px solid var(--card-border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--primary-gold);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+    /* Top Header */
+    .top-header {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px;
+      background: rgba(18, 24, 36, 0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border); z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+    }
+    .brand-title { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+    .brand-logo { width: 28px; height: 28px; object-fit: contain; }
+    .brand-title span { color: var(--accent); }
+    .nav-icon-btn { background: transparent; border: none; color: var(--text-main); position: relative; cursor: pointer; padding: 8px; border-radius: 50%; }
+    .notif-badge { position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: none; }
+    .notif-badge.active { display: block; }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--primary-gold);
-            animation: pulse 1.5s infinite ease-in-out;
-        }
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; height: 65px;
+      background: rgba(18, 24, 36, 0.98); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); z-index: 1000;
+      display: flex; justify-style: space-around; align-items: center;
+    }
+    .nav-item {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      color: var(--text-muted); text-decoration: none; font-size: 0.72rem;
+      background: none; border: none; cursor: pointer; flex: 1; padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+    .nav-item svg { width: 20px; height: 20px; fill: currentColor; }
+    .nav-item.active { color: var(--accent); font-weight: 600; }
 
-        h1 {
-            font-size: 2.5rem;
-            color: var(--text-white);
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+    /* Layout Containers */
+    .container { max-width: 1000px; margin: 0 auto; padding: 16px; }
+    .section-view { display: none; }
+    .section-view.active { display: block; }
+    .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; border-left: 4px solid var(--accent); padding-left: 10px; }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--muted-gold);
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
+    /* Grid Layouts */
+    .grid-cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 600px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .grid-cards { grid-template-columns: repeat(3, 1fr); } }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
+    /* Cards */
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { border-color: #3d485e; }
+    .card-img { width: 100%; height: 160px; object-fit: cover; background: #000; }
+    .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4; flex: 1; }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.85rem; }
+    .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; }
+    .badge-live { background: rgba(255, 71, 87, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    .badge-upcoming { background: rgba(55, 66, 250, 0.2); color: var(--primary); border: 1px solid var(--primary); }
+    .badge-ended { background: rgba(164, 176, 190, 0.2); color: var(--text-muted); border: 1px solid var(--border); }
+    .badge-success { background: rgba(46, 213, 115, 0.2); color: var(--success); border: 1px solid var(--success); }
+    .badge-pending { background: rgba(255, 165, 0, 0.2); color: var(--warning); border: 1px solid var(--warning); }
+    .badge-danger { background: rgba(255, 71, 87, 0.2); color: var(--danger); border: 1px solid var(--danger); }
 
-        .hero-icon-wrap {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-gold);
-            margin-bottom: 8px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
-        }
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 16px; border-radius: 8px; font-size: 0.88rem; font-weight: 600; cursor: pointer; border: none; transition: background 0.2s, opacity 0.2s; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+    .btn-secondary { background: #2f3542; color: #fff; }
+    .btn-secondary:hover:not(:disabled) { background: #40485a; }
+    .btn-group { display: flex; gap: 8px; margin-top: auto; }
 
-        .hero-icon-wrap i {
-            animation: spin 10s linear infinite;
-        }
+    /* Toast System */
+    .toast-container { position: fixed; top: 70px; right: 16px; left: 16px; max-width: 400px; margin: 0 auto; z-index: 2000; pointer-events: none; }
+    .toast { padding: 12px 16px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.5); pointer-events: auto; animation: slideDown 0.3s forwards; }
+    .toast-error { background: #2d1215; border: 1px solid var(--danger); color: #ff8585; }
+    .toast-success { background: #0e2a1b; border: 1px solid var(--success); color: #7bed9f; }
+    .toast-close { background: none; border: none; color: inherit; cursor: pointer; font-size: 1.1rem; }
+    @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        .hero h2 {
-            font-size: 1.8rem;
-            color: var(--text-white);
-        }
+    /* Modal System */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 1500; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); width: 100%; max-width: 500px; max-height: 85vh; overflow-y: auto; padding: 20px; position: relative; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .modal-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .modal-close { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; }
 
-        .hero p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-light);
-        }
+    /* Form Styles */
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+    .form-input { width: 100%; padding: 10px 12px; background: #0a0d14; border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 0.9rem; outline: none; }
+    .form-input:focus { border-color: var(--accent); }
 
-        /* Status Panel */
-        .status-panel {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    /* Avatar Grid Selector */
+    .avatar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .avatar-option { width: 100%; aspect-ratio: 1; border-radius: 50%; border: 2px solid transparent; cursor: pointer; object-fit: cover; }
+    .avatar-option.selected { border-color: var(--accent); }
 
-        .status-panel-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    /* Profile UI Specifics */
+    .profile-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; margin-bottom: 20px; }
+    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px auto; border: 2px solid var(--accent); }
+    .accordion-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .accordion-header { width: 100%; padding: 14px 16px; background: none; border: none; color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; }
+    .accordion-body { padding: 16px; border-top: 1px solid var(--border); display: none; }
+    .accordion-section.active .accordion-body { display: block; }
 
-        .status-panel-header i {
-            color: var(--primary-gold);
-            animation: spin 4s linear infinite;
-        }
+    /* Mobile Record Cards */
+    .record-item { background: #0a0d14; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; font-size: 0.85rem; }
+    .record-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .record-label { color: var(--text-muted); }
 
-        .status-panel-header h3 {
-            color: var(--text-white);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .progress-bar-container {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar-anim {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 40%;
-            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
-            border-radius: 3px;
-            animation: shimmer 2s infinite ease-in-out;
-        }
-
-        /* Grid Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-gold);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
-        }
-
-        .card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(255, 215, 0, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-gold);
-        }
-
-        .card h4 {
-            color: var(--text-white);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .card p {
-            font-size: 0.92rem;
-            line-height: 1.5;
-            color: var(--text-light);
-        }
-
-        /* Security Section */
-        .security-section {
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9));
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 32px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .security-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            background: rgba(255, 215, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-gold);
-            flex-shrink: 0;
-        }
-
-        .security-content h3 {
-            color: var(--text-white);
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-        }
-
-        .security-content p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-            width: 100%;
-            color: var(--muted-gold);
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            z-index: 1;
-        }
-
-        footer strong {
-            color: var(--text-white);
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes shimmer {
-            0% { left: -40%; }
-            100% { left: 100%; }
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .container { padding: 24px 16px; gap: 32px; }
-            .security-section { flex-direction: column; gap: 16px; padding: 24px; }
-            .status-panel { padding: 20px; }
-        }
-    </style>
+    /* SVG Utility Styles */
+    .icon { width: 18px; height: 18px; vertical-align: middle; fill: currentColor; }
+    .empty-state { text-align: center; padding: 40px 16px; color: var(--text-muted); font-size: 0.9rem; }
+  </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-    <div class="bg-grid"></div>
+  <!-- Toast Alert Area -->
+  <div id="toast-container" class="toast-container"></div>
 
-    <div class="container">
-        
-        <header>
-            <div class="badge">
-                <span class="status-dot"></span>
-                <i data-lucide="refresh-cw" size="14"></i>
-                SYSTEM UPDATE IN PROGRESS
-            </div>
-            <h1>HEONG ARENA</h1>
-            <div class="subtitle">Mobile Esports Platform</div>
-        </header>
-
-        <section class="hero">
-            <div class="hero-icon-wrap">
-                <i data-lucide="refresh-cw" size="32"></i>
-            </div>
-            <h2>HEONG Arena is Updating</h2>
-            <p>We're improving HEONG Arena to deliver a faster, safer, and better gaming experience.</p>
-        </section>
-
-        <section class="status-panel">
-            <div class="status-panel-header">
-                <i data-lucide="refresh-cw" size="20"></i>
-                <h3>Platform Upgrade in Progress</h3>
-            </div>
-            <p>Our team is working on important improvements. Some features may temporarily be unavailable while updates are being applied.</p>
-            <div class="progress-bar-container">
-                <div class="progress-bar-anim"></div>
-            </div>
-        </section>
-
-        <section class="cards-grid">
-            <div class="card">
-                <div class="card-icon"><i data-lucide="bug" size="22"></i></div>
-                <h4>Bug Fixes</h4>
-                <p>Fixing bugs and improving platform stability.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i data-lucide="sparkles" size="22"></i></div>
-                <h4>New Features</h4>
-                <p>Adding new features and improving the overall user experience.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i data-lucide="trophy" size="22"></i></div>
-                <h4>New Events</h4>
-                <p>Preparing exciting new tournaments, events, and challenges.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i data-lucide="shield-check" size="22"></i></div>
-                <h4>Extra Privacy</h4>
-                <p>Strengthening privacy protections and improving account security.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i data-lucide="credit-card" size="22"></i></div>
-                <h4>Secure Payments</h4>
-                <p>Improving payment security and payment reliability.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i data-lucide="zap" size="22"></i></div>
-                <h4>Faster Experience</h4>
-                <p>Optimizing HEONG Arena for faster loading and smoother performance.</p>
-            </div>
-        </section>
-
-        <section class="security-section">
-            <div class="security-icon">
-                <i data-lucide="lock" size="26"></i>
-            </div>
-            <div class="security-content">
-                <h3>Your Privacy & Security Matter</h3>
-                <p>We're strengthening privacy protections, improving account security, and enhancing payment reliability to provide a safer HEONG Arena experience.</p>
-            </div>
-        </section>
-
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <img src="./logo.png" alt="Heong Arena Logo" class="brand-logo">
+      HEONG <span>ARENA</span>
     </div>
+    <button class="nav-icon-btn" id="notif-btn" aria-label="Notifications">
+      <svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      <div id="notif-badge" class="notif-badge"></div>
+    </button>
+  </header>
 
-    <footer>
-        <p>&copy; <span id="year">2026</span> <strong>HEONG Arena</strong>. Built by <strong>FLASH POINT</strong></p>
-        <p>Thank you for being part of the HEONG Arena community.</p>
-    </footer>
+  <!-- Main Views Container -->
+  <main class="container">
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+    <!-- HOME VIEW -->
+    <section id="view-home" class="section-view active">
+      <div id="home-announcements" class="form-group"></div>
+      
+      <div class="section-title">Featured Tournaments</div>
+      <div id="home-tournaments" class="grid-cards form-group"></div>
 
-        // Dynamic Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+      <div class="section-title">Popular Store Items</div>
+      <div id="home-store" class="grid-cards form-group"></div>
 
-        // Staggered Entrance Animation for Cards
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('visible');
-                }, 100 * index);
-            });
-        });
-    </script>
+      <div class="section-title">Events & Utilities</div>
+      <div id="home-events" class="grid-cards form-group"></div>
+    </section>
+
+    <!-- TOURNAMENTS VIEW -->
+    <section id="view-tournaments" class="section-view">
+      <div class="section-title">All Tournaments</div>
+      <div id="tournaments-list" class="grid-cards"></div>
+    </section>
+
+    <!-- STORE VIEW -->
+    <section id="view-store" class="section-view">
+      <div class="section-title">Digital Gaming Store</div>
+      <div id="store-list" class="grid-cards"></div>
+    </section>
+
+    <!-- EVENTS VIEW -->
+    <section id="view-events" class="section-view">
+      <div class="section-title">Gaming Events</div>
+      <div id="events-list" class="grid-cards"></div>
+    </section>
+
+    <!-- TOOLS VIEW -->
+    <section id="view-tools" class="section-view">
+      <div class="section-title">Tools</div>
+      <div id="tools-list" class="grid-cards"></div>
+    </section>
+
+    <!-- NOTIFICATIONS VIEW -->
+    <section id="view-notifications" class="section-view">
+      <div class="section-title">Announcements & Notifications</div>
+      <div id="notifications-list" class="grid-cards"></div>
+    </section>
+
+    <!-- PROFILE VIEW -->
+    <section id="view-profile" class="section-view">
+      <!-- Signed Out View -->
+      <div id="profile-signed-out" style="display:none;">
+        <div class="profile-card">
+          <div class="section-title" style="border:none;padding:0;justify-content:center;">Account Access</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px;">Sign in to join tournaments and purchase gaming items.</p>
+          
+          <div class="form-group">
+            <button class="btn btn-primary" id="btn-show-login">Login to Account</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-secondary" id="btn-show-signup">Create New Account</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signed In View -->
+      <div id="profile-signed-in" style="display:none;">
+        <div class="profile-card">
+          <img id="user-avatar-display" src="./logo.png" alt="Avatar" class="profile-avatar">
+          <h3 id="user-name-display" style="color:#fff;margin-bottom:4px;">Username</h3>
+          <p id="user-email-display" style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;">user@example.com</p>
+          <div id="profile-status-badge" style="margin-bottom:12px;"></div>
+          <div id="profile-missing-info" style="font-size:0.8rem;color:var(--danger);margin-bottom:12px;display:none;"></div>
+        </div>
+
+        <!-- Accordion Options -->
+        <div class="accordion-section" id="acc-personal">
+          <button class="accordion-header" onclick="toggleAccordion('acc-personal')">
+            Personal Details
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <form id="form-personal">
+              <div class="form-group">
+                <label class="form-label">Username</label>
+                <input type="text" id="edit-username" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">WhatsApp Number</label>
+                <input type="text" id="edit-whatsapp" class="form-input" required placeholder="e.g. +919876543210">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Select Avatar</label>
+                <button type="button" class="btn btn-secondary" id="btn-open-avatar-modal">Choose Avatar</button>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btn-save-personal">Save Personal Details</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="accordion-section" id="acc-game">
+          <button class="accordion-header" onclick="toggleAccordion('acc-game')">
+            Game Details
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <form id="form-game">
+              <div class="form-group">
+                <label class="form-label">In-Game Name (IGN)</label>
+                <input type="text" id="edit-ign" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">In-Game ID</label>
+                <input type="text" id="edit-gameid" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Zone ID / Server ID</label>
+                <input type="text" id="edit-zoneid" class="form-input" required>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btn-save-game">Save Game Details</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="accordion-section" id="acc-tournaments-rec">
+          <button class="accordion-header" onclick="toggleAccordion('acc-tournaments-rec')">
+            Tournament History
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div id="record-tournaments"></div>
+          </div>
+        </div>
+
+        <div class="accordion-section" id="acc-store-rec">
+          <button class="accordion-header" onclick="toggleAccordion('acc-store-rec')">
+            Store History
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div id="record-store"></div>
+          </div>
+        </div>
+
+        <div class="accordion-section" id="acc-payment-rec">
+          <button class="accordion-header" onclick="toggleAccordion('acc-payment-rec')">
+            Payment Records
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div id="record-payments"></div>
+          </div>
+        </div>
+
+        <div class="accordion-section" id="acc-settings">
+          <button class="accordion-header" onclick="toggleAccordion('acc-settings')">
+            Account Settings
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="accordion-body">
+            <div class="form-group">
+              <button class="btn btn-secondary" id="btn-change-pass">Change Password</button>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" style="background:var(--danger);" id="btn-delete-acc">Delete Account</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- External Support & Legal Links -->
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.location.href='mailto:heongarena@gmail.com'">
+            Report a Bug
+            <svg class="icon" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.location.href='mailto:heongarena@gmail.com'">
+            Customer Care
+            <svg class="icon" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.open('https://privacy-policy.heongarena.online/', '_blank')">
+            Privacy Policy
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </button>
+        </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.open('https://termsandcondition.heongarena.online/', '_blank')">
+            Terms & Conditions
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </button>
+        </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.open('https://refund-policy.heongarena.online/', '_blank')">
+            Refund Policy
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </button>
+        </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.open('https://aboutus.heongarena.online/', '_blank')">
+            About Us
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </button>
+        </div>
+
+        <div style="margin-top:20px;">
+          <button class="btn btn-secondary" id="btn-logout" style="color:var(--danger);">Sign Out</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-target="view-home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      Home
+    </button>
+    <button class="nav-item" data-target="view-tournaments">
+      <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+      Tournament
+    </button>
+    <button class="nav-item" data-target="view-store">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 6H6v-4h6v4z"/></svg>
+      Store
+    </button>
+    <button class="nav-item" data-target="view-events">
+      <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      Events
+    </button>
+    <button class="nav-item" data-target="view-tools">
+      <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+      Tools
+    </button>
+    <button class="nav-item" data-target="view-profile">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      Profile
+    </button>
+  </nav>
+
+  <!-- MODALS -->
+
+  <!-- Rules Modal -->
+  <div class="modal-overlay" id="modal-rules">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="rules-modal-title">Tournament Rules</div>
+        <button class="modal-close" onclick="closeModal('modal-rules')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div id="rules-modal-body" style="font-size:0.9rem;line-height:1.5;color:var(--text-muted);white-space:pre-wrap;"></div>
+    </div>
+  </div>
+
+  <!-- Avatar Selector Modal -->
+  <div class="modal-overlay" id="modal-avatar">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Select Avatar</div>
+        <button class="modal-close" onclick="closeModal('modal-avatar')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="avatar-grid" id="avatar-selection-grid"></div>
+      <button class="btn btn-primary" onclick="closeModal('modal-avatar')">Done</button>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login/Signup) -->
+  <div class="modal-overlay" id="modal-auth">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="auth-modal-title">Sign In</div>
+        <button class="modal-close" onclick="closeModal('modal-auth')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <form id="form-auth">
+        <div class="form-group" id="group-username" style="display:none;">
+          <label class="form-label">Username</label>
+          <input type="text" id="auth-username" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-password" class="form-input" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn-auth-submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Payment Details Modal -->
+  <div class="modal-overlay" id="modal-payment">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Submit Payment Verification</div>
+        <button class="modal-close" onclick="closeModal('modal-payment')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px;">Complete payment via Razorpay, then submit your transaction details below for verification.</p>
+      <form id="form-payment">
+        <div class="form-group">
+          <label class="form-label">Item / Tournament</label>
+          <input type="text" id="pay-item-name" class="form-input" readonly>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Price (INR)</label>
+          <input type="text" id="pay-item-price" class="form-input" readonly>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your UPI ID</label>
+          <input type="text" id="pay-upi-id" class="form-input" required placeholder="example@upi">
+        </div>
+        <div class="form-group">
+          <label class="form-label">UTR / Transaction ID</label>
+          <input type="text" id="pay-utr" class="form-input" required placeholder="12-digit UTR number">
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn-pay-submit">Submit Payment Details</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FIREBASE MODULE LOGIC -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+      signOut, updatePassword, deleteUser, onAuthStateChanged 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { 
+      getDatabase, ref, set, get, push, onValue, off, child 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // -------------------------------------------------------------
+    // FIREBASE CONFIGURATION
+    // -------------------------------------------------------------
+    const firebaseConfig = {
+      apiKey: "AIzaSyAjiFRkpB6oIrLJgoAb5QRp4T9cM7ffjnY",
+      authDomain: "joyuri.firebaseapp.com",
+      projectId: "joyuri",
+      storageBucket: "joyuri.firebasestorage.app",
+      messagingSenderId: "265588475197",
+      appId: "1:265588475197:web:957616a9adc9a06cc23154"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    // Default Avatar Catalog
+    const AVATARS = [
+      "./logo.png",
+      "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990007/lucid-origin_create_a_gaming_avatar_with_a_headphone_a_boy_cartoon_.-0.jpg",
+      "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990066/lucid-origin_create_a_gaming_avatar_with_a_headphone_a_boy_cartoon_.-3.jpg",
+      "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990067/lucid-origin_create_a_gaming_avatar_with_a_headphone_a_boy_cartoon_.-1.jpg",
+      "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990068/lucid-origin_create_a_gaming_avatar_with_a_headphone_a_boy_cartoon_.-2.jpg",
+      "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990068/gemini-2.5-flash-image_create_a_gaming_avatar_with_a_headphone_a_girl_cartoon_.-0.jpg"
+    ];
+
+    // Global State Variable
+    let currentUser = null;
+    let currentUserProfile = null;
+    let selectedAvatarUrl = AVATARS[0];
+    let currentPaymentContext = null;
+    let authMode = "login"; // 'login' or 'signup'
+    let activeListeners = [];
+
+    // Helper: Error Translation Guard
+    function getReadableError(error) {
+      console.error("Internal Technical Error:", error);
+      const code = error ? error.code : "";
+      switch (code) {
+        case "auth/email-already-in-use": return "This email is already registered. Please sign in instead.";
+        case "auth/invalid-email": return "Please enter a valid email address.";
+        case "auth/user-not-found":
+        case "auth/wrong-password":
+        case "auth/invalid-credential": return "The email or password is incorrect. Please try again.";
+        case "auth/weak-password": return "Your password is too weak. Please choose a stronger password.";
+        case "auth/requires-recent-login": return "For your security, please sign in again before changing your password.";
+        case "PERMISSION_DENIED": return "You don't have permission to perform this action.";
+        default: return "Unable to process your request right now. Please try again.";
+      }
+    }
+
+    // Toast UI
+    window.showToast = function(message, type = "error") {
+      const container = document.getElementById("toast-container");
+      const toast = document.createElement("div");
+      toast.className = `toast toast-${type}`;
+      toast.innerHTML = `
+        <span>${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => { if (toast.parentNode) toast.remove(); }, 4000);
+    };
+
+    // Modal UI Helpers
+    window.openModal = function(id) { document.getElementById(id).classList.add("active"); };
+    window.closeModal = function(id) { document.getElementById(id).classList.remove("active"); };
+
+    // Navigation Logic
+    const navItems = document.querySelectorAll(".nav-item");
+    const sections = document.querySelectorAll(".section-view");
+
+    function navigateTo(targetId) {
+      navItems.forEach(item => {
+        item.classList.toggle("active", item.getAttribute("data-target") === targetId);
+      });
+      sections.forEach(sec => {
+        sec.classList.toggle("active", sec.id === targetId);
+      });
+      window.scrollTo(0, 0);
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        navigateTo(item.getAttribute("data-target"));
+      });
+    });
+
+    document.getElementById("notif-btn").addEventListener("click", () => navigateTo("view-notifications"));
+
+    // Accordion Toggle Logic
+    window.toggleAccordion = function(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("active");
+    };
+
+    // Profile Completion Checker Algorithm
+    function isProfileComplete(userData) {
+      if (!userData) return false;
+      const validVal = (val) => typeof val === "string" && val.trim().length > 0;
+      
+      const hasUsername = validVal(userData.username);
+      const hasWhatsapp = validVal(userData.whatsapp);
+      const hasAvatar = validVal(userData.avatar);
+      const hasIgn = userData.gameDetails && validVal(userData.gameDetails.ign);
+      const hasGameId = userData.gameDetails && validVal(userData.gameDetails.gameId);
+      const hasZoneId = userData.gameDetails && validVal(userData.gameDetails.zoneId);
+
+      return hasUsername && hasWhatsapp && hasAvatar && hasIgn && hasGameId && hasZoneId;
+    }
+
+    function getMissingProfileFields(userData) {
+      const missing = [];
+      if (!userData) return ["Username", "WhatsApp", "Avatar", "IGN", "In-Game ID", "Zone ID"];
+      const validVal = (val) => typeof val === "string" && val.trim().length > 0;
+      
+      if (!validVal(userData.username)) missing.push("Username");
+      if (!validVal(userData.whatsapp)) missing.push("WhatsApp");
+      if (!validVal(userData.avatar)) missing.push("Avatar");
+      if (!userData.gameDetails || !validVal(userData.gameDetails.ign)) missing.push("IGN");
+      if (!userData.gameDetails || !validVal(userData.gameDetails.gameId)) missing.push("In-Game ID");
+      if (!userData.gameDetails || !validVal(userData.gameDetails.zoneId)) missing.push("Zone ID");
+
+      return missing;
+    }
+
+    // Authentication State Observer
+    onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+      detachUserListeners();
+
+      if (user) {
+        document.getElementById("profile-signed-out").style.display = "none";
+        document.getElementById("profile-signed-in").style.display = "block";
+        loadUserProfile(user.uid);
+        attachUserListeners(user.uid);
+      } else {
+        currentUserProfile = null;
+        document.getElementById("profile-signed-out").style.display = "block";
+        document.getElementById("profile-signed-in").style.display = "none";
+      }
+    });
+
+    // Load User Profile Data
+    async function loadUserProfile(uid) {
+      try {
+        const snapshot = await get(ref(db, `users/${uid}`));
+        if (snapshot.exists()) {
+          currentUserProfile = snapshot.val();
+          renderProfileUI();
+        }
+      } catch (err) {
+        showToast(getReadableError(err));
+      }
+    }
+
+    function renderProfileUI() {
+      if (!currentUserProfile) return;
+      
+      document.getElementById("user-name-display").textContent = currentUserProfile.username || "Gamer";
+      document.getElementById("user-email-display").textContent = currentUserProfile.email || currentUser.email;
+      if (currentUserProfile.avatar) {
+        document.getElementById("user-avatar-display").src = currentUserProfile.avatar;
+        selectedAvatarUrl = currentUserProfile.avatar;
+      }
+
+      // Profile Form Values
+      document.getElementById("edit-username").value = currentUserProfile.username || "";
+      document.getElementById("edit-whatsapp").value = currentUserProfile.whatsapp || "";
+      
+      if (currentUserProfile.gameDetails) {
+        document.getElementById("edit-ign").value = currentUserProfile.gameDetails.ign || "";
+        document.getElementById("edit-gameid").value = currentUserProfile.gameDetails.gameId || "";
+        document.getElementById("edit-zoneid").value = currentUserProfile.gameDetails.zoneId || "";
+      }
+
+      // Check Profile Status
+      const complete = isProfileComplete(currentUserProfile);
+      const statusBadgeContainer = document.getElementById("profile-status-badge");
+      const missingInfoContainer = document.getElementById("profile-missing-info");
+
+      if (complete) {
+        statusBadgeContainer.innerHTML = `<span class="badge badge-success">Profile Complete</span>`;
+        missingInfoContainer.style.display = "none";
+      } else {
+        const missing = getMissingProfileFields(currentUserProfile);
+        statusBadgeContainer.innerHTML = `<span class="badge badge-danger">Profile Incomplete</span>`;
+        missingInfoContainer.style.display = "block";
+        missingInfoContainer.innerHTML = `Missing fields: ${missing.join(", ")}. Please update your Personal & Game details.`;
+      }
+    }
+
+    // Avatar Selection Setup
+    const avatarGrid = document.getElementById("avatar-selection-grid");
+    function setupAvatarGrid() {
+      avatarGrid.innerHTML = "";
+      AVATARS.forEach((url) => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = `avatar-option ${selectedAvatarUrl === url ? 'selected' : ''}`;
+        img.onclick = () => {
+          selectedAvatarUrl = url;
+          document.querySelectorAll(".avatar-option").forEach(el => el.classList.remove("selected"));
+          img.classList.add("selected");
+        };
+        avatarGrid.appendChild(img);
+      });
+    }
+    document.getElementById("btn-open-avatar-modal").addEventListener("click", () => {
+      setupAvatarGrid();
+      openModal("modal-avatar");
+    });
+
+    // Auth Modal Handlers
+    document.getElementById("btn-show-login").addEventListener("click", () => {
+      authMode = "login";
+      document.getElementById("auth-modal-title").textContent = "Sign In";
+      document.getElementById("group-username").style.display = "none";
+      document.getElementById("btn-auth-submit").textContent = "Sign In";
+      openModal("modal-auth");
+    });
+
+    document.getElementById("btn-show-signup").addEventListener("click", () => {
+      authMode = "signup";
+      document.getElementById("auth-modal-title").textContent = "Create Account";
+      document.getElementById("group-username").style.display = "block";
+      document.getElementById("btn-auth-submit").textContent = "Sign Up";
+      openModal("modal-auth");
+    });
+
+    document.getElementById("form-auth").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("auth-email").value.trim();
+      const password = document.getElementById("auth-password").value.trim();
+      const username = document.getElementById("auth-username").value.trim();
+      const btn = document.getElementById("btn-auth-submit");
+
+      btn.disabled = true;
+      btn.textContent = authMode === "login" ? "Signing in..." : "Creating account...";
+
+      try {
+        if (authMode === "signup") {
+          if (!username) throw new Error("Username required");
+          const res = await createUserWithEmailAndPassword(auth, email, password);
+          const newUser = {
+            uid: res.user.uid,
+            username: username,
+            email: email,
+            whatsapp: "",
+            avatar: AVATARS[0],
+            createdAt: new Date().toISOString(),
+            gameDetails: { ign: "", gameId: "", zoneId: "" }
+          };
+          await set(ref(db, `users/${res.user.uid}`), newUser);
+          showToast("Account created successfully.", "success");
+        } else {
+          await signInWithEmailAndPassword(auth, email, password);
+          showToast("Signed in successfully.", "success");
+        }
+        closeModal("modal-auth");
+      } catch (err) {
+        showToast(getReadableError(err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = authMode === "login" ? "Sign In" : "Sign Up";
+      }
+    });
+
+    // Save Personal Details
+    document.getElementById("form-personal").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!currentUser) return;
+
+      const btn = document.getElementById("btn-save-personal");
+      btn.disabled = true;
+      btn.textContent = "Saving...";
+
+      const username = document.getElementById("edit-username").value.trim();
+      const whatsapp = document.getElementById("edit-whatsapp").value.trim();
+
+      try {
+        await set(ref(db, `users/${currentUser.uid}/username`), username);
+        await set(ref(db, `users/${currentUser.uid}/whatsapp`), whatsapp);
+        await set(ref(db, `users/${currentUser.uid}/avatar`), selectedAvatarUrl);
+        
+        await loadUserProfile(currentUser.uid);
+        showToast("Personal details saved successfully.", "success");
+        toggleAccordion("acc-personal");
+      } catch (err) {
+        showToast(getReadableError(err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Save Personal Details";
+      }
+    });
+
+    // Save Game Details
+    document.getElementById("form-game").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!currentUser) return;
+
+      const btn = document.getElementById("btn-save-game");
+      btn.disabled = true;
+      btn.textContent = "Saving...";
+
+      const gameDetails = {
+        ign: document.getElementById("edit-ign").value.trim(),
+        gameId: document.getElementById("edit-gameid").value.trim(),
+        zoneId: document.getElementById("edit-zoneid").value.trim()
+      };
+
+      try {
+        await set(ref(db, `users/${currentUser.uid}/gameDetails`), gameDetails);
+        await loadUserProfile(currentUser.uid);
+        showToast("Game details saved successfully.", "success");
+        toggleAccordion("acc-game");
+      } catch (err) {
+        showToast(getReadableError(err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Save Game Details";
+      }
+    });
+
+    // Account Password Change & Delete Handlers
+    document.getElementById("btn-change-pass").addEventListener("click", async () => {
+      const newPass = prompt("Enter your new password:");
+      if (!newPass) return;
+      if (newPass.length < 6) {
+        showToast("Password must be at least 6 characters.");
+        return;
+      }
+      try {
+        await updatePassword(currentUser, newPass);
+        showToast("Password changed successfully.", "success");
+      } catch (err) {
+        showToast(getReadableError(err));
+      }
+    });
+
+    document.getElementById("btn-delete-acc").addEventListener("click", async () => {
+      if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+        try {
+          await deleteUser(currentUser);
+          showToast("Account deleted successfully.", "success");
+        } catch (err) {
+          showToast(getReadableError(err));
+        }
+      }
+    });
+
+    document.getElementById("btn-logout").addEventListener("click", () => {
+      signOut(auth).then(() => {
+        showToast("Signed out successfully.", "success");
+      });
+    });
+
+    // -------------------------------------------------------------
+    // REALTIME DATABASE DATA LOADERS
+    // -------------------------------------------------------------
+
+    function initRealtimeListeners() {
+      // Announcements Listener
+      onValue(ref(db, "announcements"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderAnnouncements(data);
+      });
+
+      // Tournaments Listener
+      onValue(ref(db, "tournaments"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderTournaments(data);
+      });
+
+      // Store Items Listener
+      onValue(ref(db, "storeItems"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderStore(data);
+      });
+
+      // Events Listener
+      onValue(ref(db, "events"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderEvents(data);
+      });
+
+      // Tools Listener
+      onValue(ref(db, "tools"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderTools(data);
+      });
+
+      // Notifications Listener
+      onValue(ref(db, "notifications"), (snapshot) => {
+        const data = snapshot.val() || {};
+        renderNotifications(data);
+      });
+    }
+
+    function attachUserListeners(uid) {
+      const tRef = ref(db, `tournamentRegistrations/${uid}`);
+      const tListener = onValue(tRef, (s) => renderRecords(s.val(), "record-tournaments", "tournament"));
+      
+      const sRef = ref(db, `storePurchases/${uid}`);
+      const sListener = onValue(sRef, (s) => renderRecords(s.val(), "record-store", "store"));
+
+      const pRef = ref(db, `userPaymentSubmissions/${uid}`);
+      const pListener = onValue(pRef, (s) => renderRecords(s.val(), "record-payments", "payment"));
+
+      activeListeners.push({ ref: tRef, listener: tListener });
+      activeListeners.push({ ref: sRef, listener: sListener });
+      activeListeners.push({ ref: pRef, listener: pListener });
+    }
+
+    function detachUserListeners() {
+      activeListeners.forEach(item => off(item.ref));
+      activeListeners = [];
+    }
+
+    // Render Home Announcements
+    function renderAnnouncements(data) {
+      const container = document.getElementById("home-announcements");
+      container.innerHTML = "";
+      const items = Object.values(data).filter(i => i.status !== "inactive");
+
+      if (items.length === 0) return;
+
+      items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+          <div class="card-body">
+            <div class="card-title">${item.title}</div>
+            <div class="card-desc">${item.description || ''}</div>
+            ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-primary" style="text-decoration:none;">${item.buttonText || 'View'}</a>` : ''}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render Tournaments
+    function renderTournaments(data) {
+      const homeContainer = document.getElementById("home-tournaments");
+      const listContainer = document.getElementById("tournaments-list");
+      homeContainer.innerHTML = "";
+      listContainer.innerHTML = "";
+
+      const items = Object.keys(data).map(key => ({ tournamentId: key, ...data[key] }));
+
+      if (items.length === 0) {
+        listContainer.innerHTML = `<div class="empty-state">No tournaments available.</div>`;
+        homeContainer.innerHTML = `<div class="empty-state">No upcoming tournaments.</div>`;
+        return;
+      }
+
+      items.forEach(item => {
+        const statusClass = item.status === 'live' ? 'badge-live' : item.status === 'upcoming' ? 'badge-upcoming' : 'badge-ended';
+        const cardHtml = `
+          <div class="card">
+            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="badge ${statusClass}">${item.status || 'Live'}</span>
+                <span style="font-weight:700;color:var(--accent);">₹${item.entryFee || 0}</span>
+              </div>
+              <div class="card-title">${item.title}</div>
+              <div class="card-desc">${item.description || ''}</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;">Prize Pool: <strong>₹${item.prize || 0}</strong></div>
+              <div class="btn-group">
+                <button class="btn btn-secondary" onclick="viewTournamentRules('${item.tournamentId}')">Rules</button>
+                <button class="btn btn-primary" onclick="handleTournamentRegister('${item.tournamentId}')">Register</button>
+              </div>
+            </div>
+          </div>
+        `;
+        listContainer.innerHTML += cardHtml;
+        if (item.status === 'live' || item.status === 'upcoming') {
+          homeContainer.innerHTML += cardHtml;
+        }
+      });
+
+      window.tournamentsData = data;
+    }
+
+    window.viewTournamentRules = function(id) {
+      const item = window.tournamentsData ? window.tournamentsData[id] : null;
+      if (!item) return;
+      document.getElementById("rules-modal-title").textContent = `${item.title} - Rules`;
+      document.getElementById("rules-modal-body").textContent = item.rules || "No specific rules declared for this tournament.";
+      openModal("modal-rules");
+    };
+
+    // Render Store Items
+    function renderStore(data) {
+      const homeContainer = document.getElementById("home-store");
+      const listContainer = document.getElementById("store-list");
+      homeContainer.innerHTML = "";
+      listContainer.innerHTML = "";
+
+      const items = Object.keys(data).map(key => ({ storeItemId: key, ...data[key] }));
+
+      if (items.length === 0) {
+        listContainer.innerHTML = `<div class="empty-state">No store items available.</div>`;
+        homeContainer.innerHTML = `<div class="empty-state">No store items available.</div>`;
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const cardHtml = `
+          <div class="card">
+            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+            <div class="card-body">
+              <div class="card-title">${item.title}</div>
+              <div class="card-desc">${item.description || ''}</div>
+              <div class="card-meta">
+                <span style="font-size:1.1rem;font-weight:700;color:#fff;">₹${item.price || 0}</span>
+                <span style="font-size:0.8rem;color:var(--text-muted);">Qty: ${item.quantity || 1}</span>
+              </div>
+              <button class="btn btn-primary" onclick="handleStorePurchase('${item.storeItemId}')">Purchase</button>
+            </div>
+          </div>
+        `;
+        listContainer.innerHTML += cardHtml;
+        if (index < 3) homeContainer.innerHTML += cardHtml;
+      });
+
+      window.storeData = data;
+    }
+
+    // Render Events
+    function renderEvents(data) {
+      const homeContainer = document.getElementById("home-events");
+      const listContainer = document.getElementById("events-list");
+      homeContainer.innerHTML = "";
+      listContainer.innerHTML = "";
+
+      const items = Object.values(data);
+
+      if (items.length === 0) {
+        listContainer.innerHTML = `<div class="empty-state">No events available.</div>`;
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const cardHtml = `
+          <div class="card">
+            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+            <div class="card-body">
+              <div class="card-title">${item.title}</div>
+              <div class="card-desc">${item.description || ''}</div>
+              ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-secondary" style="text-decoration:none;">${item.buttonText || 'Open'}</a>` : ''}
+            </div>
+          </div>
+        `;
+        listContainer.innerHTML += cardHtml;
+        if (index < 2) homeContainer.innerHTML += cardHtml;
+      });
+    }
+
+    // Render Tools
+    function renderTools(data) {
+      const listContainer = document.getElementById("tools-list");
+      listContainer.innerHTML = "";
+
+      const items = Object.values(data);
+
+      if (items.length === 0) {
+        listContainer.innerHTML = `<div class="empty-state">No tools available.</div>`;
+        return;
+      }
+
+      items.forEach(item => {
+        listContainer.innerHTML += `
+          <div class="card">
+            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+            <div class="card-body">
+              <div class="card-title">${item.title}</div>
+              <div class="card-desc">${item.description || ''}</div>
+              ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-primary" style="text-decoration:none;">${item.buttonText || 'Open Tool'}</a>` : ''}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Render Notifications
+    function renderNotifications(data) {
+      const listContainer = document.getElementById("notifications-list");
+      const badge = document.getElementById("notif-badge");
+      listContainer.innerHTML = "";
+
+      const items = Object.values(data);
+
+      if (items.length === 0) {
+        badge.classList.remove("active");
+        listContainer.innerHTML = `<div class="empty-state">No notifications.</div>`;
+        return;
+      }
+
+      badge.classList.add("active");
+      items.forEach(item => {
+        listContainer.innerHTML += `
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">${item.title}</div>
+              <div class="card-desc">${item.description || ''}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">${item.createdAt ? new Date(item.createdAt).toLocaleString() : ''}</div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Render User Personal History Records
+    function renderRecords(data, containerId, type) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      if (!data) {
+        container.innerHTML = `<div class="empty-state">No ${type} records found.</div>`;
+        return;
+      }
+
+      const items = Object.values(data);
+      items.forEach(item => {
+        const currentStatus = item.status || item.paymentStatus || 'pending';
+        const badgeClass = (currentStatus === 'registered' || currentStatus === 'completed' || currentStatus === 'verified') 
+          ? 'badge-success' 
+          : (currentStatus === 'rejected') 
+            ? 'badge-danger' 
+            : 'badge-pending';
+        
+        container.innerHTML += `
+          <div class="record-item">
+            <div class="record-row">
+              <strong>${item.tournamentName || item.storeItemName || item.paymentFor || 'Record'}</strong>
+              <span class="badge ${badgeClass}">${currentStatus}</span>
+            </div>
+            <div class="record-row">
+              <span class="record-label">Amount:</span> ₹${item.paymentPrice || item.price || 0}
+            </div>
+            ${item.utr ? `<div class="record-row"><span class="record-label">UTR:</span> ${item.utr}</div>` : ''}
+            <div class="record-row">
+              <span class="record-label">Date:</span> ${new Date(item.createdAt).toLocaleDateString()}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // -------------------------------------------------------------
+    // REGISTRATION & PURCHASE WORKFLOW WITH GUARANTEED PROFILE CHECK
+    // -------------------------------------------------------------
+
+    window.handleTournamentRegister = async function(tournamentId) {
+      if (!auth.currentUser) {
+        showToast("Please sign in or create an account before registering for a tournament.");
+        navigateTo("view-profile");
+        return;
+      }
+
+      // Re-fetch latest user profile state from database
+      await loadUserProfile(auth.currentUser.uid);
+
+      if (!isProfileComplete(currentUserProfile)) {
+        showToast("Please complete your profile before registering for a tournament.");
+        navigateTo("view-profile");
+        toggleAccordion("acc-personal");
+        return;
+      }
+
+      const tournament = window.tournamentsData ? window.tournamentsData[tournamentId] : null;
+      if (!tournament) {
+        showToast("Tournament details unavailable.");
+        return;
+      }
+
+      // Set temporary payment context
+      currentPaymentContext = {
+        paymentFor: "tournament",
+        tournamentId: tournamentId,
+        tournamentName: tournament.title || "Tournament Entry",
+        paymentPrice: tournament.entryFee || 0
+      };
+
+      // Open Payment link or Details Form directly
+      if (tournament.razorpayPaymentLink) {
+        window.open(tournament.razorpayPaymentLink, "_blank");
+      }
+      openPaymentSubmissionModal();
+    };
+
+    window.handleStorePurchase = async function(storeItemId) {
+      if (!auth.currentUser) {
+        showToast("Please sign in or create an account before purchasing.");
+        navigateTo("view-profile");
+        return;
+      }
+
+      // Re-fetch latest user profile state from database
+      await loadUserProfile(auth.currentUser.uid);
+
+      if (!isProfileComplete(currentUserProfile)) {
+        showToast("Please complete your profile before purchasing this item.");
+        navigateTo("view-profile");
+        toggleAccordion("acc-personal");
+        return;
+      }
+
+      const item = window.storeData ? window.storeData[storeItemId] : null;
+      if (!item) {
+        showToast("Store item details unavailable.");
+        return;
+      }
+
+      currentPaymentContext = {
+        paymentFor: "store",
+        storeItemId: storeItemId,
+        storeItemName: item.title || "Store Item",
+        quantity: item.quantity || 1,
+        paymentPrice: item.price || 0
+      };
+
+      if (item.razorpayPaymentLink) {
+        window.open(item.razorpayPaymentLink, "_blank");
+      }
+      openPaymentSubmissionModal();
+    };
+
+    function openPaymentSubmissionModal() {
+      if (!currentPaymentContext) return;
+      document.getElementById("pay-item-name").value = currentPaymentContext.tournamentName || currentPaymentContext.storeItemName || "";
+      document.getElementById("pay-item-price").value = currentPaymentContext.paymentPrice || 0;
+      openModal("modal-payment");
+    }
+
+    // Payment Submission Form Handler
+    document.getElementById("form-payment").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!auth.currentUser || !currentPaymentContext) return;
+
+      const btn = document.getElementById("btn-pay-submit");
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+
+      const upiId = document.getElementById("pay-upi-id").value.trim();
+      const utr = document.getElementById("pay-utr").value.trim();
+
+      const upiIdVal = upiId;
+      const utrVal = utr;
+
+      try {
+        if (currentPaymentContext.paymentFor === "tournament") {
+          const newRegRef = push(ref(db, "paymentSubmissions"));
+          const registrationId = newRegRef.key;
+
+          const record = {
+            registrationId: registrationId,
+            userId: auth.currentUser.uid,
+            username: currentUserProfile ? currentUserProfile.username : "",
+            email: auth.currentUser.email,
+            whatsapp: currentUserProfile ? currentUserProfile.whatsapp : "",
+            gameDetails: currentUserProfile ? currentUserProfile.gameDetails : {},
+            upiId: upiIdVal,
+            utr: utrVal,
+            tournamentId: currentPaymentContext.tournamentId || "",
+            tournamentName: currentPaymentContext.tournamentName || "",
+            paymentPrice: currentPaymentContext.paymentPrice || 0,
+            status: "pending",
+            paymentStatus: "pending",
+            createdAt: new Date().toISOString()
+          };
+
+          await set(ref(db, `paymentSubmissions/${registrationId}`), record);
+          await set(ref(db, `userPaymentSubmissions/${auth.currentUser.uid}/${registrationId}`), record);
+          await set(ref(db, `tournamentRegistrations/${auth.currentUser.uid}/${registrationId}`), record);
+
+        } else if (currentPaymentContext.paymentFor === "store") {
+          const newPurchaseRef = push(ref(db, "paymentSubmissions"));
+          const purchaseId = newPurchaseRef.key;
+
+          const record = {
+            purchaseId: purchaseId,
+            userId: auth.currentUser.uid,
+            username: currentUserProfile ? currentUserProfile.username : "",
+            email: auth.currentUser.email,
+            whatsapp: currentUserProfile ? currentUserProfile.whatsapp : "",
+            gameDetails: currentUserProfile ? currentUserProfile.gameDetails : {},
+            upiId: upiIdVal,
+            utr: utrVal,
+            storeItemId: currentPaymentContext.storeItemId || "",
+            storeItemName: currentPaymentContext.storeItemName || "",
+            quantity: currentPaymentContext.quantity || 1,
+            paymentPrice: currentPaymentContext.paymentPrice || 0,
+            status: "pending",
+            paymentStatus: "pending",
+            createdAt: new Date().toISOString()
+          };
+
+          await set(ref(db, `paymentSubmissions/${purchaseId}`), record);
+          await set(ref(db, `userPaymentSubmissions/${auth.currentUser.uid}/${purchaseId}`), record);
+          await set(ref(db, `storePurchases/${auth.currentUser.uid}/${purchaseId}`), record);
+        }
+
+        // Clear Payment Context & Close Modal
+        currentPaymentContext = null;
+        closeModal("modal-payment");
+        document.getElementById("form-payment").reset();
+        showToast("Payment details submitted successfully. Pending admin verification.", "success");
+      } catch (err) {
+        showToast(getReadableError(err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Submit Payment Details";
+      }
+    });
+
+    // Initialize application listeners
+    initRealtimeListeners();
+  </script>
 </body>
 </html>
