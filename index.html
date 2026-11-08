@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Heong Arena - Gaming Tournaments, Events, Store & Tools</title>
-  <meta name="description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
-  <meta name="keywords" content="gaming tournaments, esports, game store, gaming tools, gaming events, Heong Arena">
+  <title>Online Gaming & Sports Tournaments | Heong Arena</title>
+  <meta name="description" content="Discover online gaming tournaments, esports competitions, Free Fire and MLBB events, football and volleyball tournaments, and exciting community events. Explore upcoming competitions, register to participate, and follow your favourite tournaments.">
+  <meta name="keywords" content="online gaming tournaments, esports competitions, MLBB tournaments, Free Fire tournaments, football tournaments, volleyball tournaments, gaming events, Heong Arena">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0d1117">
+  <meta name="theme-color" content="#050817">
   <link rel="canonical" href="https://heongarena.online/">
 
   <!-- Local Favicon -->
@@ -15,15 +15,15 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Heong Arena - Gaming Tournaments, Events, Store & Tools">
-  <meta property="og:description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
+  <meta property="og:title" content="Online Gaming & Sports Tournaments | Heong Arena">
+  <meta property="og:description" content="Discover online gaming tournaments, esports competitions, Free Fire and MLBB events, football and volleyball tournaments, and exciting community events.">
   <meta property="og:url" content="https://heongarena.online/">
   <meta property="og:image" content="./og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Heong Arena - Gaming Tournaments, Events, Store & Tools">
-  <meta name="twitter:description" content="Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services.">
+  <meta name="twitter:title" content="Online Gaming & Sports Tournaments | Heong Arena">
+  <meta name="twitter:description" content="Discover online gaming tournaments, esports competitions, Free Fire and MLBB events, football and volleyball tournaments, and exciting community events.">
   <meta name="twitter:image" content="./og-image.png">
 
   <!-- JSON-LD Structured Data -->
@@ -34,52 +34,57 @@
     "name": "Heong Arena",
     "url": "https://heongarena.online/",
     "logo": "https://heongarena.online/logo.png",
-    "description": "Heong Arena is a gaming platform for tournaments, gaming events, digital game items, useful gaming tools, announcements and player services."
+    "description": "Discover online gaming tournaments, esports competitions, Free Fire and MLBB events, football and volleyball tournaments, and exciting community events."
   }
   </script>
 
   <style>
     :root {
-      --bg-main: #0a0d14;
-      --bg-card: #121824;
-      --bg-card-hover: #1a2233;
-      --accent: #ff4757;
-      --accent-hover: #ff6b81;
-      --primary: #3742fa;
-      --primary-hover: #5352ed;
-      --text-main: #f1f2f6;
-      --text-muted: #a4b0be;
-      --border: #2f3542;
-      --success: #2ed573;
-      --warning: #ffa500;
-      --danger: #ff4757;
-      --radius: 12px;
+      --bg-main: #050817;
+      --bg-card: #0e1424;
+      --bg-card-hover: #162038;
+      --accent-purple: #7138FF;
+      --accent-blue: #287BFF;
+      --accent-success: #00B88A;
+      --accent-warning: #FFB800;
+      --accent-danger: #FF4757;
+      --text-main: #FFFFFF;
+      --text-muted: #AAB6D3;
+      --border: #1e2942;
+      --radius: 14px;
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-main); -webkit-tap-highlight-color: transparent; }
-    body { background-color: var(--bg-main); color: var(--text-main); min-height: 100vh; padding-bottom: 80px; padding-top: 65px; overflow-x: hidden; }
+    body { background-color: var(--bg-main); color: var(--text-main); min-height: 100vh; padding-bottom: 90px; padding-top: 75px; overflow-x: hidden; }
 
     /* Top Header */
     .top-header {
-      position: fixed; top: 0; left: 0; right: 0; height: 60px;
-      background: rgba(18, 24, 36, 0.95); backdrop-filter: blur(8px);
+      position: fixed; top: 0; left: 0; right: 0; height: 65px;
+      background: rgba(5, 8, 23, 0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border); z-index: 1000;
       display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
     }
-    .brand-title { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
-    .brand-logo { width: 28px; height: 28px; object-fit: contain; }
-    .brand-title span { color: var(--accent); }
-    .nav-icon-btn { background: transparent; border: none; color: var(--text-main); position: relative; cursor: pointer; padding: 8px; border-radius: 50%; }
-    .notif-badge { position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: none; }
+    .brand-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .brand-logo { width: 34px; height: 34px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(113, 56, 255, 0.5)); }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; color: #fff; letter-spacing: 0.8px; font-style: italic; }
+    .brand-title span { color: var(--accent-purple); }
+    .brand-subtitle { font-size: 0.6rem; color: var(--text-muted); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+    
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .nav-icon-btn { background: rgba(30, 41, 66, 0.5); border: 1px solid var(--border); color: var(--text-main); position: relative; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .nav-icon-btn:hover { background: var(--bg-card-hover); }
+    .notif-badge { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: var(--accent-danger); border-radius: 50%; display: none; }
     .notif-badge.active { display: block; }
+    .profile-avatar-icon { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-purple); }
 
     /* Bottom Navigation Bar */
     .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; height: 65px;
-      background: rgba(18, 24, 36, 0.98); backdrop-filter: blur(10px);
+      position: fixed; bottom: 0; left: 0; right: 0; height: 70px;
+      background: rgba(5, 8, 23, 0.98); backdrop-filter: blur(12px);
       border-top: 1px solid var(--border); z-index: 1000;
-      display: flex; justify-style: space-around; align-items: center;
+      display: flex; justify-content: space-around; align-items: center; padding: 0 8px;
     }
     .nav-item {
       display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -87,82 +92,127 @@
       background: none; border: none; cursor: pointer; flex: 1; padding: 6px 0;
       transition: color 0.2s ease;
     }
-    .nav-item svg { width: 20px; height: 20px; fill: currentColor; }
-    .nav-item.active { color: var(--accent); font-weight: 600; }
+    .nav-item svg { width: 22px; height: 22px; fill: currentColor; }
+    .nav-item.active { color: var(--accent-purple); font-weight: 700; }
 
     /* Layout Containers */
-    .container { max-width: 1000px; margin: 0 auto; padding: 16px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
     .section-view { display: none; }
     .section-view.active { display: block; }
-    .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; border-left: 4px solid var(--accent); padding-left: 10px; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; margin-top: 24px; }
+    .section-title { font-size: 1.2rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .section-title svg { width: 20px; height: 20px; fill: var(--accent-purple); }
+    .view-all-link { font-size: 0.85rem; color: var(--accent-purple); font-weight: 600; text-decoration: none; cursor: pointer; }
+    .view-all-link:hover { text-decoration: underline; }
+
+    /* Promotional Banner Slider */
+    .banner-slider-container { position: relative; width: 100%; border-radius: var(--radius); overflow: hidden; margin-bottom: 24px; border: 1px solid var(--border); background: var(--bg-card); box-shadow: 0 8px 24px rgba(0,0,0,0.4); aspect-ratio: 16 / 7; max-height: 280px; display: none; }
+    .banner-slider-container.active { display: block; }
+    .banner-slides { display: flex; transition: transform 0.5s ease-in-out; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
+    .banner-slide { min-width: 100%; height: 100%; position: relative; cursor: pointer; }
+    .banner-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .banner-dots { position: absolute; bottom: 10px; right: 16px; display: flex; gap: 6px; z-index: 10; }
+    .banner-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background 0.3s, width 0.3s; }
+    .banner-dot.active { background: var(--accent-purple); width: 20px; border-radius: 4px; }
+
+    /* Category Cards Grid (4 Cards) */
+    .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+    @media (min-width: 768px) { .category-grid { grid-template-columns: repeat(4, 1fr); } }
+    .cat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 14px; text-align: left; cursor: pointer; transition: transform 0.2s, border-color 0.2s, background 0.2s; display: flex; flex-direction: column; gap: 10px; }
+    .cat-card:hover { transform: translateY(-3px); border-color: var(--accent-purple); background: var(--bg-card-hover); }
+    .cat-icon-wrapper { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .cat-icon-wrapper svg { width: 22px; height: 22px; fill: currentColor; }
+    .cat-card:nth-child(1) .cat-icon-wrapper { background: rgba(113, 56, 255, 0.2); color: var(--accent-purple); border: 1px solid rgba(113, 56, 255, 0.4); }
+    .cat-card:nth-child(2) .cat-icon-wrapper { background: rgba(0, 184, 138, 0.2); color: var(--accent-success); border: 1px solid rgba(0, 184, 138, 0.4); }
+    .cat-card:nth-child(3) .cat-icon-wrapper { background: rgba(255, 184, 0, 0.2); color: var(--accent-warning); border: 1px solid rgba(255, 184, 0, 0.4); }
+    .cat-card:nth-child(4) .cat-icon-wrapper { background: rgba(40, 123, 255, 0.2); color: var(--accent-blue); border: 1px solid rgba(40, 123, 255, 0.4); }
+    .cat-title { font-size: 1rem; font-weight: 700; color: #fff; }
+    .cat-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
 
     /* Grid Layouts */
     .grid-cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 600px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 900px) { .grid-cards { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 650px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .grid-cards { grid-template-columns: repeat(3, 1fr); } }
 
     /* Cards */
     .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
-    .card:hover { border-color: #3d485e; }
-    .card-img { width: 100%; height: 160px; object-fit: cover; background: #000; }
-    .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-    .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
-    .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4; flex: 1; }
-    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.85rem; }
-    .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; }
-    .badge-live { background: rgba(255, 71, 87, 0.2); color: var(--accent); border: 1px solid var(--accent); }
-    .badge-upcoming { background: rgba(55, 66, 250, 0.2); color: var(--primary); border: 1px solid var(--primary); }
-    .badge-ended { background: rgba(164, 176, 190, 0.2); color: var(--text-muted); border: 1px solid var(--border); }
-    .badge-success { background: rgba(46, 213, 115, 0.2); color: var(--success); border: 1px solid var(--success); }
-    .badge-pending { background: rgba(255, 165, 0, 0.2); color: var(--warning); border: 1px solid var(--warning); }
-    .badge-danger { background: rgba(255, 71, 87, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+    .card:hover { border-color: rgba(113, 56, 255, 0.5); }
+    .card-img-wrapper { position: relative; width: 100%; height: 150px; background: #000; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; }
+    .card-badge-abs { position: absolute; top: 10px; left: 10px; }
+    .card-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+    .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .card-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4; flex: 1; }
+    .card-meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.82rem; color: var(--text-muted); }
+    .card-prize { font-weight: 700; color: var(--accent-warning); }
+    .card-info-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+    .card-info-item svg { width: 16px; height: 16px; fill: var(--text-muted); flex-shrink: 0; }
+
+    /* Badges */
+    .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-live { background: rgba(255, 71, 87, 0.2); color: var(--accent-danger); border: 1px solid var(--accent-danger); }
+    .badge-upcoming { background: rgba(40, 123, 255, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-ended { background: rgba(170, 182, 211, 0.2); color: var(--text-muted); border: 1px solid var(--border); }
+    .badge-success { background: rgba(0, 184, 138, 0.2); color: var(--accent-success); border: 1px solid var(--accent-success); }
+    .badge-pending { background: rgba(255, 184, 0, 0.2); color: var(--accent-warning); border: 1px solid var(--accent-warning); }
+    .badge-danger { background: rgba(255, 71, 87, 0.2); color: var(--accent-danger); border: 1px solid var(--accent-danger); }
+    .badge-game { background: rgba(113, 56, 255, 0.2); color: #b191ff; border: 1px solid rgba(113, 56, 255, 0.4); }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 16px; border-radius: 8px; font-size: 0.88rem; font-weight: 600; cursor: pointer; border: none; transition: background 0.2s, opacity 0.2s; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 16px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; cursor: pointer; border: none; transition: background 0.2s, opacity 0.2s, transform 0.1s; }
+    .btn:active { transform: scale(0.98); }
     .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
-    .btn-secondary { background: #2f3542; color: #fff; }
-    .btn-secondary:hover:not(:disabled) { background: #40485a; }
+    .btn-primary { background: var(--accent-purple); color: #fff; box-shadow: 0 4px 14px rgba(113, 56, 255, 0.4); }
+    .btn-primary:hover:not(:disabled) { background: #824bff; }
+    .btn-secondary { background: var(--border); color: #fff; }
+    .btn-secondary:hover:not(:disabled) { background: #283554; }
+    .btn-success { background: var(--accent-success); color: #000; font-weight: 700; }
     .btn-group { display: flex; gap: 8px; margin-top: auto; }
 
+    /* Filter & Search Bar */
+    .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+    .filter-chip { padding: 6px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+    .filter-chip.active { background: var(--accent-purple); color: #fff; border-color: var(--accent-purple); }
+    .search-input { width: 100%; padding: 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; color: #fff; font-size: 0.9rem; margin-bottom: 16px; outline: none; }
+    .search-input:focus { border-color: var(--accent-purple); }
+
     /* Toast System */
-    .toast-container { position: fixed; top: 70px; right: 16px; left: 16px; max-width: 400px; margin: 0 auto; z-index: 2000; pointer-events: none; }
-    .toast { padding: 12px 16px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.5); pointer-events: auto; animation: slideDown 0.3s forwards; }
-    .toast-error { background: #2d1215; border: 1px solid var(--danger); color: #ff8585; }
-    .toast-success { background: #0e2a1b; border: 1px solid var(--success); color: #7bed9f; }
+    .toast-container { position: fixed; top: 75px; right: 16px; left: 16px; max-width: 400px; margin: 0 auto; z-index: 2000; pointer-events: none; }
+    .toast { padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; font-size: 0.88rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 6px 20px rgba(0,0,0,0.6); pointer-events: auto; animation: slideDown 0.3s forwards; }
+    .toast-error { background: #2d1215; border: 1px solid var(--accent-danger); color: #ff8585; }
+    .toast-success { background: #0e2a1b; border: 1px solid var(--accent-success); color: #7bed9f; }
     .toast-close { background: none; border: none; color: inherit; cursor: pointer; font-size: 1.1rem; }
     @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
     /* Modal System */
-    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 1500; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index: 1500; display: none; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.active { display: flex; }
-    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); width: 100%; max-width: 500px; max-height: 85vh; overflow-y: auto; padding: 20px; position: relative; }
+    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); width: 100%; max-width: 500px; max-height: 85vh; overflow-y: auto; padding: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
-    .modal-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .modal-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
     .modal-close { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; }
 
     /* Form Styles */
     .form-group { margin-bottom: 14px; }
     .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
-    .form-input { width: 100%; padding: 10px 12px; background: #0a0d14; border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 0.9rem; outline: none; }
-    .form-input:focus { border-color: var(--accent); }
+    .form-input { width: 100%; padding: 10px 12px; background: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.9rem; outline: none; }
+    .form-input:focus { border-color: var(--accent-purple); }
 
     /* Avatar Grid Selector */
-    .avatar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .avatar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
     .avatar-option { width: 100%; aspect-ratio: 1; border-radius: 50%; border: 2px solid transparent; cursor: pointer; object-fit: cover; }
-    .avatar-option.selected { border-color: var(--accent); }
+    .avatar-option.selected { border-color: var(--accent-purple); box-shadow: 0 0 12px rgba(113, 56, 255, 0.6); }
 
     /* Profile UI Specifics */
-    .profile-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; margin-bottom: 20px; }
-    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px auto; border: 2px solid var(--accent); }
-    .accordion-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .profile-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; margin-bottom: 20px; }
+    .profile-avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px auto; border: 3px solid var(--accent-purple); box-shadow: 0 0 16px rgba(113, 56, 255, 0.4); }
+    .accordion-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
     .accordion-header { width: 100%; padding: 14px 16px; background: none; border: none; color: #fff; font-size: 0.95rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; }
-    .accordion-body { padding: 16px; border-top: 1px solid var(--border); display: none; }
+    .accordion-body { padding: 16px; border-top: 1px solid var(--border); display: none; background: rgba(5, 8, 23, 0.4); }
     .accordion-section.active .accordion-body { display: block; }
 
     /* Mobile Record Cards */
-    .record-item { background: #0a0d14; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; font-size: 0.85rem; }
+    .record-item { background: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; font-size: 0.85rem; }
     .record-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
     .record-label { color: var(--text-muted); }
 
@@ -178,14 +228,22 @@
 
   <!-- Top Navigation Header -->
   <header class="top-header">
-    <div class="brand-title">
+    <div class="brand-container" onclick="navigateTo('view-home')">
       <img src="./logo.png" alt="Heong Arena Logo" class="brand-logo">
-      HEONG <span>ARENA</span>
+      <div class="brand-text">
+        <div class="brand-title">HEONG <span>ARENA</span></div>
+        <div class="brand-subtitle">PLAY • COMPETE • WIN</div>
+      </div>
     </div>
-    <button class="nav-icon-btn" id="notif-btn" aria-label="Notifications">
-      <svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-      <div id="notif-badge" class="notif-badge"></div>
-    </button>
+    <div class="header-actions">
+      <button class="nav-icon-btn" id="notif-btn" aria-label="Notifications">
+        <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        <div id="notif-badge" class="notif-badge"></div>
+      </button>
+      <div id="header-profile-icon" style="cursor:pointer;" onclick="navigateTo('view-profile')">
+        <img id="header-avatar-img" src="./logo.png" alt="Profile" class="profile-avatar-icon">
+      </div>
+    </div>
   </header>
 
   <!-- Main Views Container -->
@@ -193,45 +251,102 @@
 
     <!-- HOME VIEW -->
     <section id="view-home" class="section-view active">
-      <div id="home-announcements" class="form-group"></div>
       
-      <div class="section-title">Featured Tournaments</div>
+      <!-- Promotional Banner Slider -->
+      <div class="banner-slider-container" id="banner-slider">
+        <div class="banner-slides" id="banner-slides-track"></div>
+        <div class="banner-dots" id="banner-dots-container"></div>
+      </div>
+
+      <!-- Four Homepage Category Cards -->
+      <div class="category-grid">
+        <div class="cat-card" onclick="filterTournamentsByCategory('online')">
+          <div class="cat-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          </div>
+          <div>
+            <div class="cat-title">Online Games</div>
+            <div class="cat-desc">MLBB, Free Fire, esports & more</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="filterTournamentsByCategory('football')">
+          <div class="cat-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 3.1l2.5 1.82-.95 2.93h-3.09l-.95-2.93L13 5.1zM5.3 8.35l2.94-.43 1.3 2.76-1.8 2.47L5 11.83V8.35zm.7 8.35l2.13-2.13 2.87.93v3.13c-2.02-.28-3.79-1.09-5-1.93zm12.7 0c-1.21.84-2.98 1.65-5 1.93v-3.13l2.87-.93 2.13 2.13zM18.7 11.83l-2.74 1.32-1.8-2.47 1.3-2.76 2.94.43v3.48z"/></svg>
+          </div>
+          <div>
+            <div class="cat-title">Football</div>
+            <div class="cat-desc">Tournaments & leagues</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="filterTournamentsByCategory('volleyball')">
+          <div class="cat-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 7.2 4.5 13.9 13.9 0 0 0-5.2 2.5 14 14 0 0 0-3.5-5A7.9 7.9 0 0 1 12 4zm-2.8 2.8a12 12 0 0 1 3.2 4.3 12 12 0 0 1-6.1 1.6A8 8 0 0 1 9.2 6.8zM4 12c0-.4 0-.7.1-1.1a14 14 0 0 0 7 1.8 14 14 0 0 0 4.1 7.2A8 8 0 0 1 4 12zm13.7 6.1a12 12 0 0 1-3.6-6.1 12 12 0 0 1 5.8-2.7A8 8 0 0 1 17.7 18.1z"/></svg>
+          </div>
+          <div>
+            <div class="cat-title">Volleyball</div>
+            <div class="cat-desc">Tournaments & matches</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="navigateTo('view-events')">
+          <div class="cat-icon-wrapper">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+          </div>
+          <div>
+            <div class="cat-title">Events</div>
+            <div class="cat-desc">Community & special events</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Upcoming Tournaments Section -->
+      <div class="section-header">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2z"/></svg>
+          Upcoming Tournaments
+        </div>
+        <a class="view-all-link" onclick="navigateTo('view-tournaments')">View All →</a>
+      </div>
       <div id="home-tournaments" class="grid-cards form-group"></div>
 
-      <div class="section-title">Popular Store Items</div>
-      <div id="home-store" class="grid-cards form-group"></div>
-
-      <div class="section-title">Events & Utilities</div>
+      <!-- Upcoming Events Section -->
+      <div class="section-header">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        Upcoming Events
+        </div>
+        <a class="view-all-link" onclick="navigateTo('view-events')">View All →</a>
+      </div>
       <div id="home-events" class="grid-cards form-group"></div>
     </section>
 
     <!-- TOURNAMENTS VIEW -->
     <section id="view-tournaments" class="section-view">
-      <div class="section-title">All Tournaments</div>
-      <div id="tournaments-list" class="grid-cards"></div>
-    </section>
+      <div class="section-title" style="margin-bottom:16px;">Tournament Arena</div>
+      
+      <!-- Search & Filters -->
+      <input type="text" id="tournament-search" class="search-input" placeholder="Search tournaments by name or game..." oninput="filterTournaments()">
+      <div class="filter-bar" id="tournament-filters">
+        <button class="filter-chip active" onclick="setTournamentFilter('all', this)">All Tournaments</button>
+        <button class="filter-chip" onclick="setTournamentFilter('online', this)">Online Games</button>
+        <button class="filter-chip" onclick="setTournamentFilter('football', this)">Football</button>
+        <button class="filter-chip" onclick="setTournamentFilter('volleyball', this)">Volleyball</button>
+        <button class="filter-chip" onclick="setTournamentFilter('live', this)">Live</button>
+        <button class="filter-chip" onclick="setTournamentFilter('upcoming', this)">Upcoming</button>
+        <button class="filter-chip" onclick="setTournamentFilter('free', this)">Free Entry</button>
+      </div>
 
-    <!-- STORE VIEW -->
-    <section id="view-store" class="section-view">
-      <div class="section-title">Digital Gaming Store</div>
-      <div id="store-list" class="grid-cards"></div>
+      <div id="tournaments-list" class="grid-cards"></div>
     </section>
 
     <!-- EVENTS VIEW -->
     <section id="view-events" class="section-view">
-      <div class="section-title">Gaming Events</div>
+      <div class="section-title" style="margin-bottom:16px;">Community & Special Events</div>
       <div id="events-list" class="grid-cards"></div>
-    </section>
-
-    <!-- TOOLS VIEW -->
-    <section id="view-tools" class="section-view">
-      <div class="section-title">Tools</div>
-      <div id="tools-list" class="grid-cards"></div>
     </section>
 
     <!-- NOTIFICATIONS VIEW -->
     <section id="view-notifications" class="section-view">
-      <div class="section-title">Announcements & Notifications</div>
+      <div class="section-title" style="margin-bottom:16px;">Notifications & Announcements</div>
       <div id="notifications-list" class="grid-cards"></div>
     </section>
 
@@ -240,8 +355,8 @@
       <!-- Signed Out View -->
       <div id="profile-signed-out" style="display:none;">
         <div class="profile-card">
-          <div class="section-title" style="border:none;padding:0;justify-content:center;">Account Access</div>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px;">Sign in to join tournaments and purchase gaming items.</p>
+          <div class="section-title" style="border:none;padding:0;justify-content:center;margin-bottom:8px;">Account Access</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:20px;">Sign in to join tournaments, track your matches, and win prizes.</p>
           
           <div class="form-group">
             <button class="btn btn-primary" id="btn-show-login">Login to Account</button>
@@ -256,10 +371,10 @@
       <div id="profile-signed-in" style="display:none;">
         <div class="profile-card">
           <img id="user-avatar-display" src="./logo.png" alt="Avatar" class="profile-avatar">
-          <h3 id="user-name-display" style="color:#fff;margin-bottom:4px;">Username</h3>
-          <p id="user-email-display" style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px;">user@example.com</p>
+          <h3 id="user-name-display" style="color:#fff;margin-bottom:4px;font-size:1.2rem;">Username</h3>
+          <p id="user-email-display" style="color:var(--text-muted);font-size:0.8rem;margin-bottom:12px;">user@example.com</p>
           <div id="profile-status-badge" style="margin-bottom:12px;"></div>
-          <div id="profile-missing-info" style="font-size:0.8rem;color:var(--danger);margin-bottom:12px;display:none;"></div>
+          <div id="profile-missing-info" style="font-size:0.8rem;color:var(--accent-danger);margin-bottom:12px;display:none;background:rgba(255,71,87,0.1);padding:8px;border-radius:6px;border:1px solid rgba(255,71,87,0.3);"></div>
         </div>
 
         <!-- Accordion Options -->
@@ -289,22 +404,22 @@
 
         <div class="accordion-section" id="acc-game">
           <button class="accordion-header" onclick="toggleAccordion('acc-game')">
-            Game Details
+            Game Details (MLBB / Free Fire / Sports)
             <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
           </button>
           <div class="accordion-body">
             <form id="form-game">
               <div class="form-group">
-                <label class="form-label">In-Game Name (IGN)</label>
+                <label class="form-label">In-Game Name / Team Name</label>
                 <input type="text" id="edit-ign" class="form-input" required>
               </div>
               <div class="form-group">
-                <label class="form-label">In-Game ID</label>
+                <label class="form-label">In-Game ID / Player ID</label>
                 <input type="text" id="edit-gameid" class="form-input" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Zone ID / Server ID</label>
-                <input type="text" id="edit-zoneid" class="form-input" required>
+                <label class="form-label">Zone ID / Server ID (if applicable)</label>
+                <input type="text" id="edit-zoneid" class="form-input">
               </div>
               <button type="submit" class="btn btn-primary" id="btn-save-game">Save Game Details</button>
             </form>
@@ -321,16 +436,6 @@
           </div>
         </div>
 
-        <div class="accordion-section" id="acc-store-rec">
-          <button class="accordion-header" onclick="toggleAccordion('acc-store-rec')">
-            Store History
-            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-          </button>
-          <div class="accordion-body">
-            <div id="record-store"></div>
-          </div>
-        </div>
-
         <div class="accordion-section" id="acc-payment-rec">
           <button class="accordion-header" onclick="toggleAccordion('acc-payment-rec')">
             Payment Records
@@ -341,31 +446,10 @@
           </div>
         </div>
 
-        <div class="accordion-section" id="acc-settings">
-          <button class="accordion-header" onclick="toggleAccordion('acc-settings')">
-            Account Settings
-            <svg class="icon" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-          </button>
-          <div class="accordion-body">
-            <div class="form-group">
-              <button class="btn btn-secondary" id="btn-change-pass">Change Password</button>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary" style="background:var(--danger);" id="btn-delete-acc">Delete Account</button>
-            </div>
-          </div>
-        </div>
-
         <!-- External Support & Legal Links -->
         <div class="accordion-section">
           <button class="accordion-header" onclick="window.location.href='mailto:heongarena@gmail.com'">
-            Report a Bug
-            <svg class="icon" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          </button>
-        </div>
-        <div class="accordion-section">
-          <button class="accordion-header" onclick="window.location.href='mailto:heongarena@gmail.com'">
-            Customer Care
+            Customer Care & Support
             <svg class="icon" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
           </button>
         </div>
@@ -382,47 +466,39 @@
           </button>
         </div>
         <div class="accordion-section">
-          <button class="accordion-header" onclick="window.open('https://refund-policy.heongarena.online/', '_blank')">
-            Refund Policy
-            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-          </button>
-        </div>
-        <div class="accordion-section">
           <button class="accordion-header" onclick="window.open('https://aboutus.heongarena.online/', '_blank')">
             About Us
             <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
           </button>
         </div>
+        <div class="accordion-section">
+          <button class="accordion-header" onclick="window.open('https://refund-policy.heongarena.online/', '_blank')">
+            Refund Policy
+            <svg class="icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </button>
+        </div>
 
         <div style="margin-top:20px;">
-          <button class="btn btn-secondary" id="btn-logout" style="color:var(--danger);">Sign Out</button>
+          <button class="btn btn-secondary" id="btn-logout" style="color:var(--accent-danger);">Sign Out</button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Navigation (Fixed: Home, Tournament, Events, Profile) -->
   <nav class="bottom-nav">
     <button class="nav-item active" data-target="view-home">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       Home
     </button>
     <button class="nav-item" data-target="view-tournaments">
-      <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2z"/></svg>
       Tournament
-    </button>
-    <button class="nav-item" data-target="view-store">
-      <svg viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 6H6v-4h6v4z"/></svg>
-      Store
     </button>
     <button class="nav-item" data-target="view-events">
       <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
       Events
-    </button>
-    <button class="nav-item" data-target="view-tools">
-      <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
-      Tools
     </button>
     <button class="nav-item" data-target="view-profile">
       <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -432,16 +508,17 @@
 
   <!-- MODALS -->
 
-  <!-- Rules Modal -->
+  <!-- Tournament Details & Rules Modal -->
   <div class="modal-overlay" id="modal-rules">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-title" id="rules-modal-title">Tournament Rules</div>
+        <div class="modal-title" id="rules-modal-title">Tournament Details</div>
         <button class="modal-close" onclick="closeModal('modal-rules')">
           <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </div>
-      <div id="rules-modal-body" style="font-size:0.9rem;line-height:1.5;color:var(--text-muted);white-space:pre-wrap;"></div>
+      <div id="rules-modal-body" style="font-size:0.9rem;line-height:1.6;color:var(--text-muted);white-space:pre-wrap;"></div>
+      <div style="margin-top:20px;" id="modal-register-action"></div>
     </div>
   </div>
 
@@ -495,14 +572,14 @@
           <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </div>
-      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px;">Complete payment via Razorpay, then submit your transaction details below for verification.</p>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">Complete your entry payment, then submit your transaction UTR below for verification.</p>
       <form id="form-payment">
         <div class="form-group">
-          <label class="form-label">Item / Tournament</label>
+          <label class="form-label">Tournament / Event</label>
           <input type="text" id="pay-item-name" class="form-input" readonly>
         </div>
         <div class="form-group">
-          <label class="form-label">Price (INR)</label>
+          <label class="form-label">Entry Fee (INR)</label>
           <input type="text" id="pay-item-price" class="form-input" readonly>
         </div>
         <div class="form-group">
@@ -523,30 +600,29 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
       getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
-      signOut, updatePassword, deleteUser, onAuthStateChanged 
+      signOut, onAuthStateChanged 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
     import { 
-      getDatabase, ref, set, get, push, onValue, off, child 
+      getDatabase, ref, set, get, push, onValue, off 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
     // -------------------------------------------------------------
     // FIREBASE CONFIGURATION
     // -------------------------------------------------------------
     const firebaseConfig = {
-      apiKey: "AIzaSyAjiFRkpB6oIrLJgoAb5QRp4T9cM7ffjnY",
-      authDomain: "joyuri.firebaseapp.com",
-      projectId: "joyuri",
-      storageBucket: "joyuri.firebasestorage.app",
-      messagingSenderId: "265588475197",
-      appId: "1:265588475197:web:957616a9adc9a06cc23154"
-    };
+  apiKey: "AIzaSyDWqoFCC3RCReDfbZo7PySI9jfDLaUCCGI",
+  authDomain: "preminium.firebaseapp.com",
+  projectId: "preminium",
+  storageBucket: "preminium.firebasestorage.app",
+  messagingSenderId: "170219070047",
+  appId: "1:170219070047:web:1959d624ef72bce5d331ea",
+  measurementId: "G-G1Y1M28JBP"
+};
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getDatabase(app);
 
-    // Default Avatar Catalog
     const AVATARS = [
       "./logo.png",
       "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990007/lucid-origin_create_a_gaming_avatar_with_a_headphone_a_boy_cartoon_.-0.jpg",
@@ -556,17 +632,19 @@
       "https://res.cloudinary.com/zlc3dab0/image/upload/v1786990068/gemini-2.5-flash-image_create_a_gaming_avatar_with_a_headphone_a_girl_cartoon_.-0.jpg"
     ];
 
-    // Global State Variable
     let currentUser = null;
     let currentUserProfile = null;
     let selectedAvatarUrl = AVATARS[0];
     let currentPaymentContext = null;
-    let authMode = "login"; // 'login' or 'signup'
+    let authMode = "login";
     let activeListeners = [];
+    let allTournamentsCache = {};
+    let currentFilterCategory = "all";
+    let currentBanners = [];
+    let currentBannerIndex = 0;
 
-    // Helper: Error Translation Guard
     function getReadableError(error) {
-      console.error("Internal Technical Error:", error);
+      console.error("Technical Error:", error);
       const code = error ? error.code : "";
       switch (code) {
         case "auth/email-already-in-use": return "This email is already registered. Please sign in instead.";
@@ -575,13 +653,10 @@
         case "auth/wrong-password":
         case "auth/invalid-credential": return "The email or password is incorrect. Please try again.";
         case "auth/weak-password": return "Your password is too weak. Please choose a stronger password.";
-        case "auth/requires-recent-login": return "For your security, please sign in again before changing your password.";
-        case "PERMISSION_DENIED": return "You don't have permission to perform this action.";
         default: return "Unable to process your request right now. Please try again.";
       }
     }
 
-    // Toast UI
     window.showToast = function(message, type = "error") {
       const container = document.getElementById("toast-container");
       const toast = document.createElement("div");
@@ -594,15 +669,14 @@
       setTimeout(() => { if (toast.parentNode) toast.remove(); }, 4000);
     };
 
-    // Modal UI Helpers
     window.openModal = function(id) { document.getElementById(id).classList.add("active"); };
     window.closeModal = function(id) { document.getElementById(id).classList.remove("active"); };
 
     // Navigation Logic
-    const navItems = document.querySelectorAll(".nav-item");
+    const navItems = document.querySelectorAll(".bottom-nav .nav-item");
     const sections = document.querySelectorAll(".section-view");
 
-    function navigateTo(targetId) {
+    window.navigateTo = function(targetId) {
       navItems.forEach(item => {
         item.classList.toggle("active", item.getAttribute("data-target") === targetId);
       });
@@ -610,53 +684,40 @@
         sec.classList.toggle("active", sec.id === targetId);
       });
       window.scrollTo(0, 0);
-    }
+    };
 
     navItems.forEach(item => {
       item.addEventListener("click", () => {
-        navigateTo(item.getAttribute("data-target"));
+        window.navigateTo(item.getAttribute("data-target"));
       });
     });
 
-    document.getElementById("notif-btn").addEventListener("click", () => navigateTo("view-notifications"));
+    document.getElementById("notif-btn").addEventListener("click", () => window.navigateTo("view-notifications"));
 
-    // Accordion Toggle Logic
     window.toggleAccordion = function(id) {
       const el = document.getElementById(id);
       if (el) el.classList.toggle("active");
     };
 
-    // Profile Completion Checker Algorithm
     function isProfileComplete(userData) {
       if (!userData) return false;
       const validVal = (val) => typeof val === "string" && val.trim().length > 0;
-      
-      const hasUsername = validVal(userData.username);
-      const hasWhatsapp = validVal(userData.whatsapp);
-      const hasAvatar = validVal(userData.avatar);
-      const hasIgn = userData.gameDetails && validVal(userData.gameDetails.ign);
-      const hasGameId = userData.gameDetails && validVal(userData.gameDetails.gameId);
-      const hasZoneId = userData.gameDetails && validVal(userData.gameDetails.zoneId);
-
-      return hasUsername && hasWhatsapp && hasAvatar && hasIgn && hasGameId && hasZoneId;
+      return validVal(userData.username) && validVal(userData.whatsapp) && 
+             userData.gameDetails && validVal(userData.gameDetails.ign) && validVal(userData.gameDetails.gameId);
     }
 
     function getMissingProfileFields(userData) {
       const missing = [];
-      if (!userData) return ["Username", "WhatsApp", "Avatar", "IGN", "In-Game ID", "Zone ID"];
+      if (!userData) return ["Username", "WhatsApp", "IGN", "In-Game ID"];
       const validVal = (val) => typeof val === "string" && val.trim().length > 0;
-      
       if (!validVal(userData.username)) missing.push("Username");
       if (!validVal(userData.whatsapp)) missing.push("WhatsApp");
-      if (!validVal(userData.avatar)) missing.push("Avatar");
       if (!userData.gameDetails || !validVal(userData.gameDetails.ign)) missing.push("IGN");
       if (!userData.gameDetails || !validVal(userData.gameDetails.gameId)) missing.push("In-Game ID");
-      if (!userData.gameDetails || !validVal(userData.gameDetails.zoneId)) missing.push("Zone ID");
-
       return missing;
     }
 
-    // Authentication State Observer
+    // Auth State Observer
     onAuthStateChanged(auth, async (user) => {
       currentUser = user;
       detachUserListeners();
@@ -670,10 +731,10 @@
         currentUserProfile = null;
         document.getElementById("profile-signed-out").style.display = "block";
         document.getElementById("profile-signed-in").style.display = "none";
+        document.getElementById("header-avatar-img").src = "./logo.png";
       }
     });
 
-    // Load User Profile Data
     async function loadUserProfile(uid) {
       try {
         const snapshot = await get(ref(db, `users/${uid}`));
@@ -682,21 +743,20 @@
           renderProfileUI();
         }
       } catch (err) {
-        showToast(getReadableError(err));
+        console.error(err);
       }
     }
 
     function renderProfileUI() {
       if (!currentUserProfile) return;
-      
       document.getElementById("user-name-display").textContent = currentUserProfile.username || "Gamer";
       document.getElementById("user-email-display").textContent = currentUserProfile.email || currentUser.email;
       if (currentUserProfile.avatar) {
         document.getElementById("user-avatar-display").src = currentUserProfile.avatar;
+        document.getElementById("header-avatar-img").src = currentUserProfile.avatar;
         selectedAvatarUrl = currentUserProfile.avatar;
       }
 
-      // Profile Form Values
       document.getElementById("edit-username").value = currentUserProfile.username || "";
       document.getElementById("edit-whatsapp").value = currentUserProfile.whatsapp || "";
       
@@ -706,7 +766,6 @@
         document.getElementById("edit-zoneid").value = currentUserProfile.gameDetails.zoneId || "";
       }
 
-      // Check Profile Status
       const complete = isProfileComplete(currentUserProfile);
       const statusBadgeContainer = document.getElementById("profile-status-badge");
       const missingInfoContainer = document.getElementById("profile-missing-info");
@@ -718,11 +777,11 @@
         const missing = getMissingProfileFields(currentUserProfile);
         statusBadgeContainer.innerHTML = `<span class="badge badge-danger">Profile Incomplete</span>`;
         missingInfoContainer.style.display = "block";
-        missingInfoContainer.innerHTML = `Missing fields: ${missing.join(", ")}. Please update your Personal & Game details.`;
+        missingInfoContainer.innerHTML = `Missing fields: ${missing.join(", ")}. Please update your details to participate.`;
       }
     }
 
-    // Avatar Selection Setup
+    // Avatar Grid
     const avatarGrid = document.getElementById("avatar-selection-grid");
     function setupAvatarGrid() {
       avatarGrid.innerHTML = "";
@@ -743,7 +802,7 @@
       openModal("modal-avatar");
     });
 
-    // Auth Modal Handlers
+    // Auth Handlers
     document.getElementById("btn-show-login").addEventListener("click", () => {
       authMode = "login";
       document.getElementById("auth-modal-title").textContent = "Sign In";
@@ -798,23 +857,16 @@
       }
     });
 
-    // Save Personal Details
+    // Save Personal & Game Details
     document.getElementById("form-personal").addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!currentUser) return;
-
       const btn = document.getElementById("btn-save-personal");
       btn.disabled = true;
-      btn.textContent = "Saving...";
-
-      const username = document.getElementById("edit-username").value.trim();
-      const whatsapp = document.getElementById("edit-whatsapp").value.trim();
-
       try {
-        await set(ref(db, `users/${currentUser.uid}/username`), username);
-        await set(ref(db, `users/${currentUser.uid}/whatsapp`), whatsapp);
+        await set(ref(db, `users/${currentUser.uid}/username`), document.getElementById("edit-username").value.trim());
+        await set(ref(db, `users/${currentUser.uid}/whatsapp`), document.getElementById("edit-whatsapp").value.trim());
         await set(ref(db, `users/${currentUser.uid}/avatar`), selectedAvatarUrl);
-        
         await loadUserProfile(currentUser.uid);
         showToast("Personal details saved successfully.", "success");
         toggleAccordion("acc-personal");
@@ -822,25 +874,19 @@
         showToast(getReadableError(err));
       } finally {
         btn.disabled = false;
-        btn.textContent = "Save Personal Details";
       }
     });
 
-    // Save Game Details
     document.getElementById("form-game").addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!currentUser) return;
-
       const btn = document.getElementById("btn-save-game");
       btn.disabled = true;
-      btn.textContent = "Saving...";
-
       const gameDetails = {
         ign: document.getElementById("edit-ign").value.trim(),
         gameId: document.getElementById("edit-gameid").value.trim(),
         zoneId: document.getElementById("edit-zoneid").value.trim()
       };
-
       try {
         await set(ref(db, `users/${currentUser.uid}/gameDetails`), gameDetails);
         await loadUserProfile(currentUser.uid);
@@ -850,76 +896,34 @@
         showToast(getReadableError(err));
       } finally {
         btn.disabled = false;
-        btn.textContent = "Save Game Details";
-      }
-    });
-
-    // Account Password Change & Delete Handlers
-    document.getElementById("btn-change-pass").addEventListener("click", async () => {
-      const newPass = prompt("Enter your new password:");
-      if (!newPass) return;
-      if (newPass.length < 6) {
-        showToast("Password must be at least 6 characters.");
-        return;
-      }
-      try {
-        await updatePassword(currentUser, newPass);
-        showToast("Password changed successfully.", "success");
-      } catch (err) {
-        showToast(getReadableError(err));
-      }
-    });
-
-    document.getElementById("btn-delete-acc").addEventListener("click", async () => {
-      if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
-        try {
-          await deleteUser(currentUser);
-          showToast("Account deleted successfully.", "success");
-        } catch (err) {
-          showToast(getReadableError(err));
-        }
       }
     });
 
     document.getElementById("btn-logout").addEventListener("click", () => {
-      signOut(auth).then(() => {
-        showToast("Signed out successfully.", "success");
-      });
+      signOut(auth).then(() => showToast("Signed out successfully.", "success"));
     });
 
     // -------------------------------------------------------------
-    // REALTIME DATABASE DATA LOADERS
+    // REALTIME DATABASE DATA LOADERS & SLIDER LOGIC
     // -------------------------------------------------------------
 
     function initRealtimeListeners() {
-      // Announcements Listener
+      // Banners Slider
       onValue(ref(db, "announcements"), (snapshot) => {
         const data = snapshot.val() || {};
-        renderAnnouncements(data);
+        renderBannerSlider(data);
       });
 
       // Tournaments Listener
       onValue(ref(db, "tournaments"), (snapshot) => {
-        const data = snapshot.val() || {};
-        renderTournaments(data);
-      });
-
-      // Store Items Listener
-      onValue(ref(db, "storeItems"), (snapshot) => {
-        const data = snapshot.val() || {};
-        renderStore(data);
+        allTournamentsCache = snapshot.val() || {};
+        renderTournaments(allTournamentsCache);
       });
 
       // Events Listener
       onValue(ref(db, "events"), (snapshot) => {
         const data = snapshot.val() || {};
         renderEvents(data);
-      });
-
-      // Tools Listener
-      onValue(ref(db, "tools"), (snapshot) => {
-        const data = snapshot.val() || {};
-        renderTools(data);
       });
 
       // Notifications Listener
@@ -933,14 +937,10 @@
       const tRef = ref(db, `tournamentRegistrations/${uid}`);
       const tListener = onValue(tRef, (s) => renderRecords(s.val(), "record-tournaments", "tournament"));
       
-      const sRef = ref(db, `storePurchases/${uid}`);
-      const sListener = onValue(sRef, (s) => renderRecords(s.val(), "record-store", "store"));
-
       const pRef = ref(db, `userPaymentSubmissions/${uid}`);
       const pListener = onValue(pRef, (s) => renderRecords(s.val(), "record-payments", "payment"));
 
       activeListeners.push({ ref: tRef, listener: tListener });
-      activeListeners.push({ ref: sRef, listener: sListener });
       activeListeners.push({ ref: pRef, listener: pListener });
     }
 
@@ -949,27 +949,64 @@
       activeListeners = [];
     }
 
-    // Render Home Announcements
-    function renderAnnouncements(data) {
-      const container = document.getElementById("home-announcements");
-      container.innerHTML = "";
-      const items = Object.values(data).filter(i => i.status !== "inactive");
+    // Dynamic Promotional Banner Slider (Images Only)
+    let bannerInterval = null;
 
-      if (items.length === 0) return;
+    function renderBannerSlider(data) {
+      const sliderContainer = document.getElementById("banner-slider");
+      const track = document.getElementById("banner-slides-track");
+      const dotsContainer = document.getElementById("banner-dots-container");
+      track.innerHTML = "";
+      dotsContainer.innerHTML = "";
 
-      items.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
-          <div class="card-body">
-            <div class="card-title">${item.title}</div>
-            <div class="card-desc">${item.description || ''}</div>
-            ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-primary" style="text-decoration:none;">${item.buttonText || 'View'}</a>` : ''}
-          </div>
-        `;
-        container.appendChild(card);
+      currentBanners = Object.values(data).filter(i => i.status !== "inactive");
+      if (currentBanners.length === 0) {
+        sliderContainer.classList.remove("active");
+        if (bannerInterval) clearInterval(bannerInterval);
+        return;
+      }
+
+      sliderContainer.classList.add("active");
+
+      currentBanners.forEach((item, index) => {
+        const slide = document.createElement("div");
+        slide.className = "banner-slide";
+        slide.innerHTML = `<img src="${item.image || ''}" alt="Banner">`;
+        slide.onclick = () => {
+          if (item.redirectLink) {
+            window.open(item.redirectLink, "_blank");
+          } else {
+            navigateTo('view-tournaments');
+          }
+        };
+        track.appendChild(slide);
+
+        const dot = document.createElement("div");
+        dot.className = `banner-dot ${index === 0 ? 'active' : ''}`;
+        dot.onclick = (e) => {
+          e.stopPropagation();
+          goToSlide(index);
+        };
+        dotsContainer.appendChild(dot);
       });
+
+      currentBannerIndex = 0;
+
+      if (bannerInterval) clearInterval(bannerInterval);
+      bannerInterval = setInterval(() => {
+        currentBannerIndex = (currentBannerIndex + 1) % currentBanners.length;
+        goToSlide(currentBannerIndex);
+      }, 3000);
+    }
+
+    function goToSlide(index) {
+      currentBannerIndex = index;
+      const track = document.getElementById("banner-slides-track");
+      const dots = document.querySelectorAll(".banner-dot");
+      if (track) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle("active", i === index));
+      }
     }
 
     // Render Tournaments
@@ -977,8 +1014,7 @@
       const homeContainer = document.getElementById("home-tournaments");
       const listContainer = document.getElementById("tournaments-list");
       homeContainer.innerHTML = "";
-      listContainer.innerHTML = "";
-
+      
       const items = Object.keys(data).map(key => ({ tournamentId: key, ...data[key] }));
 
       if (items.length === 0) {
@@ -987,133 +1023,157 @@
         return;
       }
 
-      items.forEach(item => {
-        const statusClass = item.status === 'live' ? 'badge-live' : item.status === 'upcoming' ? 'badge-upcoming' : 'badge-ended';
-        const cardHtml = `
-          <div class="card">
-            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="badge ${statusClass}">${item.status || 'Live'}</span>
-                <span style="font-weight:700;color:var(--accent);">₹${item.entryFee || 0}</span>
-              </div>
-              <div class="card-title">${item.title}</div>
-              <div class="card-desc">${item.description || ''}</div>
-              <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;">Prize Pool: <strong>₹${item.prize || 0}</strong></div>
-              <div class="btn-group">
-                <button class="btn btn-secondary" onclick="viewTournamentRules('${item.tournamentId}')">Rules</button>
-                <button class="btn btn-primary" onclick="handleTournamentRegister('${item.tournamentId}')">Register</button>
-              </div>
-            </div>
-          </div>
-        `;
-        listContainer.innerHTML += cardHtml;
-        if (item.status === 'live' || item.status === 'upcoming') {
-          homeContainer.innerHTML += cardHtml;
-        }
+      // Filter based on current active category and search
+      const searchTerm = document.getElementById("tournament-search") ? document.getElementById("tournament-search").value.toLowerCase() : "";
+      
+      const filtered = items.filter(item => {
+        const matchesSearch = (item.title && item.title.toLowerCase().includes(searchTerm)) || 
+                              (item.game && item.game.toLowerCase().includes(searchTerm));
+        if (!matchesSearch) return false;
+
+        if (currentFilterCategory === 'online') return item.category === 'online' || item.type === 'online';
+        if (currentFilterCategory === 'football') return item.category === 'football' || item.type === 'football';
+        if (currentFilterCategory === 'volleyball') return item.category === 'volleyball' || item.type === 'volleyball';
+        if (currentFilterCategory === 'live') return item.status === 'live';
+        if (currentFilterCategory === 'upcoming') return item.status === 'upcoming';
+        if (currentFilterCategory === 'free') return Number(item.entryFee || 0) === 0;
+        return true;
       });
 
-      window.tournamentsData = data;
-    }
-
-    window.viewTournamentRules = function(id) {
-      const item = window.tournamentsData ? window.tournamentsData[id] : null;
-      if (!item) return;
-      document.getElementById("rules-modal-title").textContent = `${item.title} - Rules`;
-      document.getElementById("rules-modal-body").textContent = item.rules || "No specific rules declared for this tournament.";
-      openModal("modal-rules");
-    };
-
-    // Render Store Items
-    function renderStore(data) {
-      const homeContainer = document.getElementById("home-store");
-      const listContainer = document.getElementById("store-list");
-      homeContainer.innerHTML = "";
-      listContainer.innerHTML = "";
-
-      const items = Object.keys(data).map(key => ({ storeItemId: key, ...data[key] }));
-
-      if (items.length === 0) {
-        listContainer.innerHTML = `<div class="empty-state">No store items available.</div>`;
-        homeContainer.innerHTML = `<div class="empty-state">No store items available.</div>`;
-        return;
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `<div class="empty-state">No tournaments match your filter.</div>`;
+      } else {
+        listContainer.innerHTML = "";
+        filtered.forEach(item => {
+          listContainer.appendChild(createTournamentCardElement(item));
+        });
       }
 
-      items.forEach((item, index) => {
-        const cardHtml = `
-          <div class="card">
-            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
-            <div class="card-body">
-              <div class="card-title">${item.title}</div>
-              <div class="card-desc">${item.description || ''}</div>
-              <div class="card-meta">
-                <span style="font-size:1.1rem;font-weight:700;color:#fff;">₹${item.price || 0}</span>
-                <span style="font-size:0.8rem;color:var(--text-muted);">Qty: ${item.quantity || 1}</span>
-              </div>
-              <button class="btn btn-primary" onclick="handleStorePurchase('${item.storeItemId}')">Purchase</button>
-            </div>
-          </div>
-        `;
-        listContainer.innerHTML += cardHtml;
-        if (index < 3) homeContainer.innerHTML += cardHtml;
-      });
-
-      window.storeData = data;
+      // Render Home Upcoming Tournaments (limit to 3)
+      const upcomingItems = items.filter(i => i.status === 'live' || i.status === 'upcoming').slice(0, 3);
+      if (upcomingItems.length === 0) {
+        homeContainer.innerHTML = `<div class="empty-state">No upcoming tournaments right now.</div>`;
+      } else {
+        upcomingItems.forEach(item => {
+          homeContainer.appendChild(createTournamentCardElement(item));
+        });
+      }
     }
+
+    function createTournamentCardElement(item) {
+      const statusClass = item.status === 'live' ? 'badge-live' : item.status === 'upcoming' ? 'badge-upcoming' : 'badge-ended';
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <div class="card-img-wrapper">
+          ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+          <div class="card-badge-abs"><span class="badge ${statusClass}">${item.status || 'Upcoming'}</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-row">
+            <span class="badge badge-game">${item.game || item.category || 'Tournament'}</span>
+            <span class="card-prize">₹${item.prize || 0}</span>
+          </div>
+          <div class="card-title">${item.title}</div>
+          <div class="card-desc">${item.description || item.format || ''}</div>
+          <div class="card-info-item">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            <span>${item.date || 'TBD'}</span>
+            <span style="margin: 0 4px;">•</span>
+            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span>Entry: <strong>₹${item.entryFee || 0}</strong></span>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="viewTournamentDetails('${item.tournamentId}')">Details</button>
+            <button class="btn btn-primary" onclick="handleTournamentRegister('${item.tournamentId}')">Register Now</button>
+          </div>
+        </div>
+      `;
+      return div;
+    }
+
+    window.filterTournamentsByCategory = function(category) {
+      currentFilterCategory = category;
+      window.navigateTo('view-tournaments');
+      // Update filter chips UI
+      const chips = document.querySelectorAll('#tournament-filters .filter-chip');
+      chips.forEach(chip => {
+        if (chip.textContent.toLowerCase().includes(category)) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+      renderTournaments(allTournamentsCache);
+    };
+
+    window.setTournamentFilter = function(category, btnElement) {
+      currentFilterCategory = category;
+      document.querySelectorAll('#tournament-filters .filter-chip').forEach(c => c.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderTournaments(allTournamentsCache);
+    };
+
+    window.filterTournaments = function() {
+      renderTournaments(allTournamentsCache);
+    };
+
+    window.viewTournamentDetails = function(id) {
+      const item = allTournamentsCache[id];
+      if (!item) return;
+      document.getElementById("rules-modal-title").textContent = item.title;
+      document.getElementById("rules-modal-body").innerHTML = `
+        <p><strong>Game / Sport:</strong> ${item.game || item.category || 'General'}</p>
+        <p><strong>Format:</strong> ${item.format || 'Standard'}</p>
+        <p><strong>Prize Pool:</strong> ₹${item.prize || 0}</p>
+        <p><strong>Entry Fee:</strong> ₹${item.entryFee || 0}</p>
+        <p><strong>Schedule:</strong> ${item.date || 'TBD'}</p>
+        <p style="margin-top:10px;"><strong>Rules & Instructions:</strong><br>${item.rules || item.description || 'No specific rules declared.'}</p>
+      `;
+      document.getElementById("modal-register-action").innerHTML = `
+        <button class="btn btn-primary" onclick="closeModal('modal-rules'); handleTournamentRegister('${id}')">Proceed to Register Now</button>
+      `;
+      openModal("modal-rules");
+    };
 
     // Render Events
     function renderEvents(data) {
       const homeContainer = document.getElementById("home-events");
       const listContainer = document.getElementById("events-list");
-      homeContainer.innerHTML = "";
-      listContainer.innerHTML = "";
+      if (homeContainer) homeContainer.innerHTML = "";
+      if (listContainer) listContainer.innerHTML = "";
 
       const items = Object.values(data);
 
       if (items.length === 0) {
-        listContainer.innerHTML = `<div class="empty-state">No events available.</div>`;
+        if (listContainer) listContainer.innerHTML = `<div class="empty-state">No upcoming events.</div>`;
+        if (homeContainer) homeContainer.innerHTML = `<div class="empty-state">No upcoming events.</div>`;
         return;
       }
 
       items.forEach((item, index) => {
         const cardHtml = `
           <div class="card">
-            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+            <div class="card-img-wrapper">
+              ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
+              <div class="card-badge-abs"><span class="badge badge-upcoming">Event</span></div>
+            </div>
             <div class="card-body">
               <div class="card-title">${item.title}</div>
               <div class="card-desc">${item.description || ''}</div>
-              ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-secondary" style="text-decoration:none;">${item.buttonText || 'Open'}</a>` : ''}
+              <div class="card-info-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>${item.venue || 'Community Arena'}</span>
+                <span style="margin: 0 4px;">•</span>
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                <span>${item.date || 'TBD'}</span>
+              </div>
+              ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-secondary" style="text-decoration:none;text-align:center;">View Details</a>` : ''}
             </div>
           </div>
         `;
-        listContainer.innerHTML += cardHtml;
-        if (index < 2) homeContainer.innerHTML += cardHtml;
-      });
-    }
-
-    // Render Tools
-    function renderTools(data) {
-      const listContainer = document.getElementById("tools-list");
-      listContainer.innerHTML = "";
-
-      const items = Object.values(data);
-
-      if (items.length === 0) {
-        listContainer.innerHTML = `<div class="empty-state">No tools available.</div>`;
-        return;
-      }
-
-      items.forEach(item => {
-        listContainer.innerHTML += `
-          <div class="card">
-            ${item.image ? `<img src="${item.image}" class="card-img" alt="${item.title}">` : ''}
-            <div class="card-body">
-              <div class="card-title">${item.title}</div>
-              <div class="card-desc">${item.description || ''}</div>
-              ${item.redirectLink ? `<a href="${item.redirectLink}" target="_blank" class="btn btn-primary" style="text-decoration:none;">${item.buttonText || 'Open Tool'}</a>` : ''}
-            </div>
-          </div>
-        `;
+        if (listContainer) listContainer.innerHTML += cardHtml;
+        if (homeContainer && index < 2) homeContainer.innerHTML += cardHtml;
       });
     }
 
@@ -1124,7 +1184,6 @@
       listContainer.innerHTML = "";
 
       const items = Object.values(data);
-
       if (items.length === 0) {
         badge.classList.remove("active");
         listContainer.innerHTML = `<div class="empty-state">No notifications.</div>`;
@@ -1138,16 +1197,17 @@
             <div class="card-body">
               <div class="card-title">${item.title}</div>
               <div class="card-desc">${item.description || ''}</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">${item.createdAt ? new Date(item.createdAt).toLocaleString() : ''}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:6px;">${item.createdAt ? new Date(item.createdAt).toLocaleString() : ''}</div>
             </div>
           </div>
         `;
       });
     }
 
-    // Render User Personal History Records
+    // Render User History Records
     function renderRecords(data, containerId, type) {
       const container = document.getElementById(containerId);
+      if (!container) return;
       container.innerHTML = "";
 
       if (!data) {
@@ -1159,57 +1219,45 @@
       items.forEach(item => {
         const currentStatus = item.status || item.paymentStatus || 'pending';
         const badgeClass = (currentStatus === 'registered' || currentStatus === 'completed' || currentStatus === 'verified') 
-          ? 'badge-success' 
-          : (currentStatus === 'rejected') 
-            ? 'badge-danger' 
-            : 'badge-pending';
+          ? 'badge-success' : (currentStatus === 'rejected') ? 'badge-danger' : 'badge-pending';
         
         container.innerHTML += `
           <div class="record-item">
             <div class="record-row">
-              <strong>${item.tournamentName || item.storeItemName || item.paymentFor || 'Record'}</strong>
+              <strong>${item.tournamentName || item.paymentFor || 'Record'}</strong>
               <span class="badge ${badgeClass}">${currentStatus}</span>
             </div>
-            <div class="record-row">
-              <span class="record-label">Amount:</span> ₹${item.paymentPrice || item.price || 0}
-            </div>
+            <div class="record-row"><span class="record-label">Amount:</span> ₹${item.paymentPrice || 0}</div>
             ${item.utr ? `<div class="record-row"><span class="record-label">UTR:</span> ${item.utr}</div>` : ''}
-            <div class="record-row">
-              <span class="record-label">Date:</span> ${new Date(item.createdAt).toLocaleDateString()}
-            </div>
+            <div class="record-row"><span class="record-label">Date:</span> ${new Date(item.createdAt).toLocaleDateString()}</div>
           </div>
         `;
       });
     }
 
-    // -------------------------------------------------------------
-    // REGISTRATION & PURCHASE WORKFLOW WITH GUARANTEED PROFILE CHECK
-    // -------------------------------------------------------------
-
+    // Registration Workflow with Profile Check
     window.handleTournamentRegister = async function(tournamentId) {
       if (!auth.currentUser) {
-        showToast("Please sign in or create an account before registering for a tournament.");
-        navigateTo("view-profile");
+        showToast("Please sign in or create an account before registering.");
+        window.navigateTo("view-profile");
         return;
       }
 
-      // Re-fetch latest user profile state from database
       await loadUserProfile(auth.currentUser.uid);
 
       if (!isProfileComplete(currentUserProfile)) {
-        showToast("Please complete your profile before registering for a tournament.");
-        navigateTo("view-profile");
+        showToast("Please complete your profile details before registering.");
+        window.navigateTo("view-profile");
         toggleAccordion("acc-personal");
         return;
       }
 
-      const tournament = window.tournamentsData ? window.tournamentsData[tournamentId] : null;
+      const tournament = allTournamentsCache[tournamentId];
       if (!tournament) {
         showToast("Tournament details unavailable.");
         return;
       }
 
-      // Set temporary payment context
       currentPaymentContext = {
         paymentFor: "tournament",
         tournamentId: tournamentId,
@@ -1217,58 +1265,19 @@
         paymentPrice: tournament.entryFee || 0
       };
 
-      // Open Payment link or Details Form directly
       if (tournament.razorpayPaymentLink) {
         window.open(tournament.razorpayPaymentLink, "_blank");
       }
       openPaymentSubmissionModal();
     };
 
-    window.handleStorePurchase = async function(storeItemId) {
-      if (!auth.currentUser) {
-        showToast("Please sign in or create an account before purchasing.");
-        navigateTo("view-profile");
-        return;
-      }
-
-      // Re-fetch latest user profile state from database
-      await loadUserProfile(auth.currentUser.uid);
-
-      if (!isProfileComplete(currentUserProfile)) {
-        showToast("Please complete your profile before purchasing this item.");
-        navigateTo("view-profile");
-        toggleAccordion("acc-personal");
-        return;
-      }
-
-      const item = window.storeData ? window.storeData[storeItemId] : null;
-      if (!item) {
-        showToast("Store item details unavailable.");
-        return;
-      }
-
-      currentPaymentContext = {
-        paymentFor: "store",
-        storeItemId: storeItemId,
-        storeItemName: item.title || "Store Item",
-        quantity: item.quantity || 1,
-        paymentPrice: item.price || 0
-      };
-
-      if (item.razorpayPaymentLink) {
-        window.open(item.razorpayPaymentLink, "_blank");
-      }
-      openPaymentSubmissionModal();
-    };
-
     function openPaymentSubmissionModal() {
       if (!currentPaymentContext) return;
-      document.getElementById("pay-item-name").value = currentPaymentContext.tournamentName || currentPaymentContext.storeItemName || "";
+      document.getElementById("pay-item-name").value = currentPaymentContext.tournamentName || "";
       document.getElementById("pay-item-price").value = currentPaymentContext.paymentPrice || 0;
       openModal("modal-payment");
     }
 
-    // Payment Submission Form Handler
     document.getElementById("form-payment").addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!auth.currentUser || !currentPaymentContext) return;
@@ -1280,67 +1289,35 @@
       const upiId = document.getElementById("pay-upi-id").value.trim();
       const utr = document.getElementById("pay-utr").value.trim();
 
-      const upiIdVal = upiId;
-      const utrVal = utr;
-
       try {
-        if (currentPaymentContext.paymentFor === "tournament") {
-          const newRegRef = push(ref(db, "paymentSubmissions"));
-          const registrationId = newRegRef.key;
+        const newRegRef = push(ref(db, "paymentSubmissions"));
+        const registrationId = newRegRef.key;
 
-          const record = {
-            registrationId: registrationId,
-            userId: auth.currentUser.uid,
-            username: currentUserProfile ? currentUserProfile.username : "",
-            email: auth.currentUser.email,
-            whatsapp: currentUserProfile ? currentUserProfile.whatsapp : "",
-            gameDetails: currentUserProfile ? currentUserProfile.gameDetails : {},
-            upiId: upiIdVal,
-            utr: utrVal,
-            tournamentId: currentPaymentContext.tournamentId || "",
-            tournamentName: currentPaymentContext.tournamentName || "",
-            paymentPrice: currentPaymentContext.paymentPrice || 0,
-            status: "pending",
-            paymentStatus: "pending",
-            createdAt: new Date().toISOString()
-          };
+        const record = {
+          registrationId: registrationId,
+          userId: auth.currentUser.uid,
+          username: currentUserProfile ? currentUserProfile.username : "",
+          email: auth.currentUser.email,
+          whatsapp: currentUserProfile ? currentUserProfile.whatsapp : "",
+          gameDetails: currentUserProfile ? currentUserProfile.gameDetails : {},
+          upiId: upiId,
+          utr: utr,
+          tournamentId: currentPaymentContext.tournamentId || "",
+          tournamentName: currentPaymentContext.tournamentName || "",
+          paymentPrice: currentPaymentContext.paymentPrice || 0,
+          status: "pending",
+          paymentStatus: "pending",
+          createdAt: new Date().toISOString()
+        };
 
-          await set(ref(db, `paymentSubmissions/${registrationId}`), record);
-          await set(ref(db, `userPaymentSubmissions/${auth.currentUser.uid}/${registrationId}`), record);
-          await set(ref(db, `tournamentRegistrations/${auth.currentUser.uid}/${registrationId}`), record);
+        await set(ref(db, `paymentSubmissions/${registrationId}`), record);
+        await set(ref(db, `userPaymentSubmissions/${auth.currentUser.uid}/${registrationId}`), record);
+        await set(ref(db, `tournamentRegistrations/${auth.currentUser.uid}/${registrationId}`), record);
 
-        } else if (currentPaymentContext.paymentFor === "store") {
-          const newPurchaseRef = push(ref(db, "paymentSubmissions"));
-          const purchaseId = newPurchaseRef.key;
-
-          const record = {
-            purchaseId: purchaseId,
-            userId: auth.currentUser.uid,
-            username: currentUserProfile ? currentUserProfile.username : "",
-            email: auth.currentUser.email,
-            whatsapp: currentUserProfile ? currentUserProfile.whatsapp : "",
-            gameDetails: currentUserProfile ? currentUserProfile.gameDetails : {},
-            upiId: upiIdVal,
-            utr: utrVal,
-            storeItemId: currentPaymentContext.storeItemId || "",
-            storeItemName: currentPaymentContext.storeItemName || "",
-            quantity: currentPaymentContext.quantity || 1,
-            paymentPrice: currentPaymentContext.paymentPrice || 0,
-            status: "pending",
-            paymentStatus: "pending",
-            createdAt: new Date().toISOString()
-          };
-
-          await set(ref(db, `paymentSubmissions/${purchaseId}`), record);
-          await set(ref(db, `userPaymentSubmissions/${auth.currentUser.uid}/${purchaseId}`), record);
-          await set(ref(db, `storePurchases/${auth.currentUser.uid}/${purchaseId}`), record);
-        }
-
-        // Clear Payment Context & Close Modal
         currentPaymentContext = null;
         closeModal("modal-payment");
         document.getElementById("form-payment").reset();
-        showToast("Payment details submitted successfully. Pending admin verification.", "success");
+        showToast("Payment verification submitted successfully. Pending admin review.", "success");
       } catch (err) {
         showToast(getReadableError(err));
       } finally {
@@ -1349,7 +1326,6 @@
       }
     });
 
-    // Initialize application listeners
     initRealtimeListeners();
   </script>
 </body>
